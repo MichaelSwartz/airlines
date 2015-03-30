@@ -1,0 +1,7 @@
+<ul>
+<% @reviews.each do |review| %>
+  <li>Rating: <%= review.rating %></li>
+  <li><%= review.body %></li>
+  <%=link_to "Edit", review_path(review.id)%>
+<% end %>
+</ul>

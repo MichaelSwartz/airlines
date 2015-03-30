@@ -1,0 +1,10 @@
+<%= form_for @review do |f| %>
+  <%= f.label :rating, "Rating:" %><br>
+  <%= f.select :rating, options_for_select([nil, 1, 2, 3, 4, 5]) %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit (f.object.new_record? ? "Submit review" : "Edit review"),
+                                               class: "button tiny success" %>
+<% end %>
