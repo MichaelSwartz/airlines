@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :airlines do
-    resources :reviews, only: [:index, :new, :create, :update, :show]
+    resources :reviews, only: [:index, :new, :create, :update, :show, :edit, :destroy]
   end
 end

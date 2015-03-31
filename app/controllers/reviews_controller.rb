@@ -1,10 +1,12 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   def index
     @reviews = Review.all
   end
 
   def show
     @review = Review.find(params[:id])
+    @airline = Airline.find(params[:airline_id])
   end
 
   def new
@@ -26,12 +28,24 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @review.update(review_params)
+    @airline = Airline.find(@review.airline_id)
     if @review.save
       flash[:notice] = 'Review successfully edited'
-      redirect_to airline_path
+      redirect_to airline_path(@airline)
     else
       flash[:notice] = 'Rating can\'t be blank'
-      render :new
+      redirect_to airline_review_path(airline_id: @airline.id, id: @review.id)
+    end
+  end
+  def destroy
+    @review = Review.find(params[:id])
+    @airline = Airline.find(@review.airline_id)
+    if @review.destroy
+      flash[:notice] = 'Review successfully deleted'
+      redirect_to airline_path(@airline)
+    else
+      flash[:alert] = "Something went wrong"
+      redirect_to airline_path(@airline)
     end
   end
 
