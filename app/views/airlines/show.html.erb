@@ -1,1 +1,20 @@
 <%= @airline.name %>
+<table>
+    <th>
+      Rating
+    </th>
+    <th>
+      Reviews
+    </th>
+    <% @reviews.each do |review| %>
+    <tr>
+      <td>
+        <%= review.rating %>
+      </td>
+      <td>
+        <%= review.body %>
+      </td>
+    </tr>
+    <% end %>
+</table>
+<%= render 'reviews/form' %>

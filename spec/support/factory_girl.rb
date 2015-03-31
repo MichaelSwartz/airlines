@@ -7,10 +7,16 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :airline do
+    name 'Jet-Blue'
+    description 'BLue airline'
+  end
+  
   factory :review do
     sequence(:body) {|n| "Some content #{n}" }
     rating '3'
     user_id 1
+    airline_id 1
   end
 
 end
