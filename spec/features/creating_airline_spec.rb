@@ -36,6 +36,25 @@ feature "creating an airline" do
     fill_in "Link URL", with: "example.com"
     fill_in "Logo URL", with: "example-logo.com"
     click_on "Add Airline"
-    expect(page).to have_content("Name cannot be blank")
+    expect(page).to have_content("Name can't be blank")
+  end
+
+  scenario "user attempts to create duplicate airline, but the code says oh no you ditint" do
+    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:airline, name: 'Delta Airlines')
+
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Log in"
+
+    visit root_path
+    click_on "Create New Airline"
+
+    fill_in "Name", with: "Delta Airlines"
+    fill_in "Link URL", with: "example.com"
+    fill_in "Logo URL", with: "example-logo.com"
+    click_on "Add Airline"
+    expect(page).to have_content("Name has already been taken")
   end
 end

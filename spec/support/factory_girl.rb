@@ -7,6 +7,13 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :airline do
+    name 'name'
+    description 'description'
+    link_url 'www.url.com'
+    logo_url 'www.url.com'
+  end
+
   factory :review do
     sequence(:body) {|n| "Some content #{n}" }
     rating '3'
