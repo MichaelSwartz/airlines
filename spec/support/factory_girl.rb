@@ -9,6 +9,9 @@ FactoryGirl.define do
 
   factory :airline do
     name 'name'
+    description 'description'
+    link_url 'www.url.com'
+    logo_url 'www.url.com'
   end
 
   factory :review do
