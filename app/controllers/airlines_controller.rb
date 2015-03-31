@@ -38,6 +38,19 @@ class AirlinesController < ApplicationController
     end
   end
 
+  def destroy
+    @airline = Airline.find(params[:id])
+
+    if @airline.destroy
+      flash[:notice] = "Airline deleted"
+      redirect_to airlines_path
+    else
+      flash[:notice] = @airline.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
+
   protected
   def airline_params
     params.require(:airline).permit(
