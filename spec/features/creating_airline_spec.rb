@@ -16,7 +16,7 @@ feature "creating an airline" do
     fill_in "Link URL", with: "example.com"
     fill_in "Logo URL", with: "example-logo.com"
     click_on "Add Airline"
-
+    #add image link validation & description and shit
     expect(page).to have_content("New Airline Added")
     expect(page).to have_content("Example Airline")
   end

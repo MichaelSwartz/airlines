@@ -1,6 +1,13 @@
 class AirlinesController < ApplicationController
-  # def index
-  # end
+
+  def index
+    @airlines = Airline.all
+  end
+
+
+  def edit
+    @airline = Airline.find(params[:id])
+  end
 
   def new
     @airline = Airline.new
