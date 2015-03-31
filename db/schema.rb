@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150331152607) do
     t.boolean  "reported"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "airline_id", null: false
   end
 
   create_table "users", force: :cascade do |t|

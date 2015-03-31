@@ -8,8 +8,8 @@ FactoryGirl.define do
   end
 
   factory :airline do
-    name 'name'
-    description 'description'
+    name 'Jet-Blue'
+    description 'BLue airline'
     link_url 'www.url.com'
     logo_url 'www.url.com'
   end
@@ -18,6 +18,6 @@ FactoryGirl.define do
     sequence(:body) {|n| "Some content #{n}" }
     rating '3'
     user_id 1
+    airline_id 1
   end
-
 end

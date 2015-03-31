@@ -13,12 +13,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.new(review_params)
+    @review.airline_id = params[:airline_id]
     if @review.save
       flash[:notice] = 'Review successfully created'
-      redirect_to reviews_path
+      redirect_to airline_path(@review.airline_id)
     else
       flash[:notice] = 'Rating can\'t be blank'
-      render :new
+      redirect_to airline_path(@review.airline_id)
     end
   end
 
@@ -27,7 +28,7 @@ class ReviewsController < ApplicationController
     @review.update(review_params)
     if @review.save
       flash[:notice] = 'Review successfully edited'
-      redirect_to reviews_path
+      redirect_to airline_path
     else
       flash[:notice] = 'Rating can\'t be blank'
       render :new
