@@ -11,18 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150331145422) do
+=======
+ActiveRecord::Schema.define(version: 20150331152607) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "airlines", force: :cascade do |t|
+<<<<<<< HEAD
     t.string "name",        null: false
     t.text   "description"
     t.string "link_url"
     t.string "logo_url"
   end
 
+=======
+    t.string   "name",        null: false
+    t.text     "description"
+    t.string   "link_url"
+    t.string   "logo_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "airlines", ["name"], name: "index_airlines_on_name", unique: true, using: :btree
+
+>>>>>>> master
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "rating",     null: false
@@ -30,7 +47,10 @@ ActiveRecord::Schema.define(version: 20150331145422) do
     t.boolean  "reported"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.integer  "airline_id", null: false
+=======
+>>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
