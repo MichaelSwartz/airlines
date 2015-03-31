@@ -7,6 +7,10 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :airline do
+    name 'name'
+  end
+
   factory :review do
     sequence(:body) {|n| "Some content #{n}" }
     rating '3'
