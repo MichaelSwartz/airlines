@@ -24,7 +24,6 @@ feature 'user creates review', %Q{
       airline = FactoryGirl.create(:airline)
 
       visit airline_path(airline.id)
-      save_and_open_page
 
       select('1', from: 'Rating:')
       fill_in 'Body', with: 'I like this airline'
