@@ -29,7 +29,7 @@ feature "updating an airline" do
     expect(page).to have_content("Airline updated")
     expect(page).to have_content("Delta Airlines")
     expect(page).to have_link('Go to Airline Website', href: 'www.example.com')
-    expect(page).to have_xpath('http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif')
+    expect(page).to have_xpath("//img[contains(@src,\"http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif\")]")
     expect(page).to have_content("delta flies planes!")
   end
 

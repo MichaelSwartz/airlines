@@ -4,6 +4,16 @@ class AirlinesController < ApplicationController
     @airlines = Airline.all
   end
 
+  def update
+    @airline = Airline.find(params[:id])
+    if @airline.update(airline_params)
+      flash[:notice] = "Airline updated"
+      redirect_to @airline
+    else
+      flash[:notice] = @airline.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
 
   def edit
     @airline = Airline.find(params[:id])
