@@ -14,7 +14,7 @@ feature 'user updates review', %Q{
 
     scenario 'user deletes review successfully' do
      airline = FactoryGirl.create(:airline)
-     review = FactoryGirl.create(:review, airline: airline, user: user)
+     FactoryGirl.create(:review, airline: airline, user: user)
 
      visit airline_path(airline)
 
@@ -22,13 +22,13 @@ feature 'user updates review', %Q{
 
      expect(page).to have_content('Review successfully deleted')
     end
- end
+  end
 
   context 'as a visitor' do
     scenario 'try to delete a review' do
      airline = FactoryGirl.create(:airline)
      user = FactoryGirl.create(:user)
-     review = FactoryGirl.create(:review, airline: airline, user: user)
+     FactoryGirl.create(:review, airline: airline, user: user)
      visit airline_path(airline)
 
      expect(page).to_not have_content('Delete')

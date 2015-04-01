@@ -22,7 +22,7 @@ feature 'user creates review', %Q{
     scenario 'User successfully creates review' do
 
       airline = FactoryGirl.create(:airline)
-      review = FactoryGirl.create(:review, airline: airline, user: user)
+      FactoryGirl.create(:review, airline: airline, user: user)
 
       visit airline_path(airline)
 
@@ -55,7 +55,8 @@ feature 'user creates review', %Q{
       select('1', from: 'Rating:')
       fill_in 'Body', with: 'I like this airline'
       click_button 'Submit review'
-      expect(page).to have_content('You need to sign in or sign up before continuing.')
+      expect(page).to have_content(
+      'You need to sign in or sign up before continuing.')
     end
   end
 end

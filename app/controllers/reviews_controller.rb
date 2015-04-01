@@ -37,6 +37,7 @@ class ReviewsController < ApplicationController
       redirect_to airline_review_path(airline_id: @airline.id, id: @review.id)
     end
   end
+  
   def destroy
     @review = Review.find(params[:id])
     @airline = Airline.find(@review.airline_id)

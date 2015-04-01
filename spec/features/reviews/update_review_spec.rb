@@ -14,7 +14,7 @@ feature 'user updates review', %Q{
 
     scenario 'user reviews updates sucessfully' do
       airline = FactoryGirl.create(:airline)
-      review = FactoryGirl.create(:review, airline: airline, user: user)
+      FactoryGirl.create(:review, airline: airline, user: user)
 
       visit airline_path(airline)
 
@@ -31,7 +31,7 @@ feature 'user updates review', %Q{
 
     scenario 'user does not provide rating' do
       airline = FactoryGirl.create(:airline)
-      review = FactoryGirl.create(:review, airline: airline, user: user)
+      FactoryGirl.create(:review, airline: airline, user: user)
 
       visit airline_path(airline)
 
@@ -48,10 +48,11 @@ feature 'user updates review', %Q{
     scenario 'try to update a review' do
       airline = FactoryGirl.create(:airline)
       user = FactoryGirl.create(:user)
-      review = FactoryGirl.create(:review, airline: airline, user: user)
+      FactoryGirl.create(:review, airline: airline, user: user)
       visit airline_path(airline)
+      save_and_open_page
 
-      expect(page).to_not have_content('Edit')
+      expect(page).to_not have_content('Edit Review')
     end
   end
 end
