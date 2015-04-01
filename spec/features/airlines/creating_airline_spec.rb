@@ -56,11 +56,11 @@ feature "creating an airline" do
      scenario "try to create an airline" do
        visit root_path
        click_on "Create New Airline"
-
        fill_in "Name", with: "Delta Airlines"
        fill_in "Link URL", with: "example.com"
        fill_in "Logo URL", with: "example-logo.com"
        click_on "Add Airline"
+
        expect(page).to have_content("You need to sign in or sign up before continuing.")
      end
    end

@@ -22,7 +22,7 @@ feature "updating an airline" do
     end
 
     scenario "succesfully update airline information" do
-      delta = FactoryGirl.create(:airline)
+      delta = FactoryGirl.create(:airline, user: user)
       visit airline_path(delta)
 
       click_on "Edit Airline"
@@ -41,31 +41,31 @@ feature "updating an airline" do
       expect(page).to have_content("delta flies planes!")
     end
 
-  scenario "fails to update with empty name" do
-    delta = FactoryGirl.create(:airline)
-    visit airline_path(delta)
+    scenario "fails to update with empty name" do
+      delta = FactoryGirl.create(:airline, user: user)
+      visit airline_path(delta)
 
-    click_on "Edit Airline"
+      click_on "Edit Airline"
 
-    fill_in "Name", with: ""
+      fill_in "Name", with: ""
 
-    click_on "Update Airline"
+      click_on "Update Airline"
 
-    expect(page).to have_content("Name can't be blank")
+      expect(page).to have_content("Name can't be blank")
+    end
+
+    scenario "fails to update with duplicate name" do
+      delta = FactoryGirl.create(:airline, user: user)
+      FactoryGirl.create(:airline, name: 'Delta')
+      visit airline_path(delta)
+
+      click_on "Edit Airline"
+
+      fill_in "Name", with: "Delta"
+
+      click_on "Update Airline"
+
+      expect(page).to have_content("Name has already been taken")
+    end
   end
-
-  scenario "fails to update with duplicate name" do
-    delta = FactoryGirl.create(:airline)
-    FactoryGirl.create(:airline, name: 'Delta')
-    visit airline_path(delta)
-
-    click_on "Edit Airline"
-
-    fill_in "Name", with: "Delta"
-
-    click_on "Update Airline"
-
-    expect(page).to have_content("Name has already been taken")
-  end
- end
 end

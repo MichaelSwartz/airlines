@@ -1,10 +1,19 @@
-<%= @airline.name %>
+<strong><%= @airline.name %></strong>
+<div class="panel">
 
-<%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
-<%= @airline.description %>
 <%= image_tag @airline.logo_url %>
-<%= link_to "Edit Airline", edit_airline_path %>
-
+<p>
+  <%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
+</p>
+<p>
+  <%= @airline.description %>
+</p>
+  <% if user_signed_in? %>
+    <% if current_user.id == @airline.user_id %>
+      <%= link_to "Edit Airline", edit_airline_path %>
+    <%- end -%>
+  <%- end -%>
+</div>
 <table>
     <th>
       Rating
