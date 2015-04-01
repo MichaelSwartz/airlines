@@ -22,7 +22,7 @@ feature "paginating reviews" do
     )
 
     visit airline_path(airline)
-    save_and_open_page
+
     expect(page).to_not have_content("second_page_review")
   end
 

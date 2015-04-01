@@ -21,8 +21,8 @@ end
 
 20.times do
   users << User.create_with(
-    password: Faker::Lorem.characters(10))
-    .find_or_create_by(email: Faker::Internet.email)
+    password: Faker::Lorem.characters(10)).
+    find_or_create_by(email: Faker::Internet.email)
 end
 
 10000.times do
