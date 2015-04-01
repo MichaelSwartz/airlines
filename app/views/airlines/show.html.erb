@@ -1,5 +1,11 @@
 <%= @airline.name %>
 
+<%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
+<%= @airline.description %>
+<%= image_tag @airline.logo_url %>
+<%= link_to "Edit Airline", edit_airline_path %>
+
+
 <table>
     <th>
       Rating
@@ -28,9 +34,5 @@
       <%- end -%>
     <% end %>
 </table>
-<%= render 'reviews/form' %>
 
-<%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
-<%= @airline.description %>
-<%= image_tag @airline.logo_url %>
-<%= link_to "Edit Airline", edit_airline_path %>
+<%= render 'reviews/form' %>

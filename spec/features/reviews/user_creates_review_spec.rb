@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 feature 'user creates review', %Q{
   As an authenticated user
   I want to add an airline
@@ -20,7 +21,6 @@ feature 'user creates review', %Q{
     end
 
     scenario 'User successfully creates review' do
-
       airline = FactoryGirl.create(:airline)
       FactoryGirl.create(:review, airline: airline, user: user)
 
@@ -36,7 +36,6 @@ feature 'user creates review', %Q{
     end
 
     scenario 'User tries submit a review without a rating' do
-
       airline = FactoryGirl.create(:airline)
 
       visit airline_path(airline.id)
