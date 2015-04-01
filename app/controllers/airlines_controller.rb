@@ -1,8 +1,7 @@
 class AirlinesController < ApplicationController
 
   def index
-    @all_airlines = Airline.all
-    @airlines = Kaminari.paginate_array(@all_airlines).page(params[:page])
+    @airlines = Airline.page(params[:page])
   end
 
   def update
@@ -26,8 +25,7 @@ class AirlinesController < ApplicationController
 
   def show
     @airline = Airline.find(params[:id])
-    @all_reviews = Review.where(airline_id: @airline.id)
-    @reviews = Kaminari.paginate_array(@all_reviews).page(params[:page])
+    @reviews = @airline.reviews.page(params[:page])
     @review = Review.new
   end
 
