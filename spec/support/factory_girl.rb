@@ -12,6 +12,7 @@ FactoryGirl.define do
     description 'BLue airline'
     link_url 'www.url.com'
     logo_url 'www.image.com'
+    user
   end
 
   factory :review do

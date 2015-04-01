@@ -61,7 +61,6 @@ feature "creating an airline" do
        fill_in "Link URL", with: "example.com"
        fill_in "Logo URL", with: "example-logo.com"
        click_on "Add Airline"
-       save_and_open_page
        expect(page).to have_content("You need to sign in or sign up before continuing.")
      end
    end
