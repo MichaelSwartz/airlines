@@ -27,7 +27,6 @@ So that I can delete reviews
       end
 
       visit admin_airline_path(airline)
-save_and_open_page
 
       click_link(deleted_review.id)
       expect(page).to have_content('The review has been deleted')
