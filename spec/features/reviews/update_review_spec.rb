@@ -50,7 +50,6 @@ feature 'user updates review', %Q{
       user = FactoryGirl.create(:user)
       FactoryGirl.create(:review, airline: airline, user: user)
       visit airline_path(airline)
-      save_and_open_page
 
       expect(page).to_not have_content('Edit Review')
     end
