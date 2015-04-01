@@ -5,6 +5,11 @@ FactoryGirl.define do
     sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
+
+    factory :admin do
+      admin true
+    end
+
   end
 
   factory :airline do
@@ -12,6 +17,7 @@ FactoryGirl.define do
     description 'BLue airline'
     link_url 'www.url.com'
     logo_url 'www.image.com'
+    user
   end
 
   factory :review do
@@ -20,4 +26,5 @@ FactoryGirl.define do
     user
     airline
   end
+
 end

@@ -1,4 +1,5 @@
 class AirlinesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def index
     @airlines = Airline.page(params[:page])
@@ -30,7 +31,7 @@ class AirlinesController < ApplicationController
   end
 
   def create
-    @airline = Airline.new(airline_params)
+    @airline = current_user.airlines.new(airline_params)
     if @airline.save
       flash[:notice] = "New Airline Added"
       redirect_to @airline
