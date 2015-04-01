@@ -26,7 +26,8 @@ class AirlinesController < ApplicationController
 
   def show
     @airline = Airline.find(params[:id])
-    @reviews = Review.where(airline_id: @airline.id)
+    @all_reviews = Review.where(airline_id: @airline.id)
+    @reviews = Kaminari.paginate_array(@all_reviews).page(params[:page])
     @review = Review.new
   end
 

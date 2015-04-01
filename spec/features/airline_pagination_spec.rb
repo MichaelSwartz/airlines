@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'faker'
 
 feature "paginating airlines" do
   scenario "user visits index and does not see 26th airline" do
