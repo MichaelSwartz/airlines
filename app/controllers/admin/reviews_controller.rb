@@ -14,11 +14,6 @@ module Admin
 
       redirect_to admin_airline_path(@airline)
     end
-
-    protected
-
-    def review_params
-    end
-
+    
   end
 end
