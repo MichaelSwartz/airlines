@@ -12,40 +12,37 @@ feature 'user creates review', %Q{
   #I must be presented with a form to review an airline
   #In the form I must include a rating. Optionally I can include a comment
   #I must be presented with an error if I do not include a rating in my review
+  context 'as an authorized user' do
+    let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'User successfully creates review' do
-    user = FactoryGirl.create(:user)
-    visit new_user_session_path
+    before :each do
+      sign_in_as user
+    end
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    scenario 'User successfully creates review' do
 
-    click_button 'Log in'
-    visit new_review_path
-    select('1', from: 'Rating:')
-    fill_in 'Body', with: 'I like this airline'
-    click_button 'Submit review'
+      airline = FactoryGirl.create(:airline)
 
-    expect(page).to have_content('Review successfully created')
-    expect(page).to have_content("Rating: 1")
-    expect(page).to have_content('I like this airline')
+      visit airline_path(airline.id)
+
+      select('1', from: 'Rating:')
+      fill_in 'Body', with: 'I like this airline'
+      click_button 'Submit review'
+
+      expect(page).to have_content('Review successfully created')
+      expect(page).to have_content("Rating: 1")
+      expect(page).to have_content('I like this airline')
+    end
+
+    scenario 'User tries to create review' do
+
+      airline = FactoryGirl.create(:airline)
+
+      visit airline_path(airline.id)
+
+      click_button 'Submit review'
+
+      expect(page).to have_content('Rating can\'t be blank')
+    end
   end
-
-  scenario 'User successfully creates review' do
-    user = FactoryGirl.create(:user)
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-    visit new_review_path
-
-    click_button 'Submit review'
-
-    expect(page).to have_content('Rating can\'t be blank')
-  end
-
-
-
 end

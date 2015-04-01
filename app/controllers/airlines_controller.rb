@@ -25,6 +25,8 @@ class AirlinesController < ApplicationController
 
   def show
     @airline = Airline.find(params[:id])
+    @reviews = Review.where(airline_id: @airline.id)
+    @review = Review.new
   end
 
   def create

@@ -1,4 +1,25 @@
 <%= @airline.name %>
+
+<table>
+    <th>
+      Rating
+    </th>
+    <th>
+      Reviews
+    </th>
+    <% @reviews.each do |review| %>
+    <tr>
+      <td>
+        <%= review.rating %>
+      </td>
+      <td>
+        <%= review.body %>
+      </td>
+    </tr>
+    <% end %>
+</table>
+<%= render 'reviews/form' %>
+
 <%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
 <%= @airline.description %>
 <%= image_tag @airline.logo_url %>
