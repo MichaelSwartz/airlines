@@ -1,7 +1,7 @@
 class AirlinesController < ApplicationController
 
   def index
-    @airlines = Airline.all
+    @airlines = Airline.page(params[:page])
   end
 
   def update
@@ -25,7 +25,7 @@ class AirlinesController < ApplicationController
 
   def show
     @airline = Airline.find(params[:id])
-    @reviews = Review.where(airline_id: @airline.id)
+    @reviews = @airline.reviews.page(params[:page])
     @review = Review.new
   end
 
