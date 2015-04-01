@@ -1,0 +1,21 @@
+<h1> Edit Airline</h1>
+
+<div>
+  <%= form_for @airline do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :link_url, 'Link URL' %>
+    <%= f.text_field :link_url %>
+
+    <%= f.label :logo_url, 'Logo URL' %>
+    <%= f.text_field :logo_url %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <%= f.submit "Update Airline" %>
+  <% end %>
+</div>
+
+<%= button_to "Delete Airline", airline_path, method: :delete %>

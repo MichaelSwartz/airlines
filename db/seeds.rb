@@ -15,8 +15,10 @@ users = []
     name: Faker::Company.name,
     link_url: Faker::Internet.url,
     logo_url: Faker::Company.logo,
-    description: Faker::Company.bs
+    description: Faker::Company.bs,
+    user_id: users.sample.id
   )
+
 end
 
 20.times do
