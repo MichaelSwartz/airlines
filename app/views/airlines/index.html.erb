@@ -1,0 +1,11 @@
+<h1>Airlines</h1>
+
+<%= link_to "Create New Airline", new_airline_path  %>
+
+<ul>
+  <% @airlines.each do |airline| %>
+    <li>
+      <a href="<%= airline_path(airline) %>"><%= airline.name %></a>
+    </li>
+  <% end %>
+</ul>
