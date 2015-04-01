@@ -22,8 +22,9 @@ feature 'user creates review', %Q{
     scenario 'User successfully creates review' do
 
       airline = FactoryGirl.create(:airline)
+      FactoryGirl.create(:review, airline: airline, user: user)
 
-      visit airline_path(airline.id)
+      visit airline_path(airline)
 
       select('1', from: 'Rating:')
       fill_in 'Body', with: 'I like this airline'
@@ -34,7 +35,7 @@ feature 'user creates review', %Q{
       expect(page).to have_content('I like this airline')
     end
 
-    scenario 'User tries to create review' do
+    scenario 'User tries submit a review without a rating' do
 
       airline = FactoryGirl.create(:airline)
 
@@ -43,6 +44,19 @@ feature 'user creates review', %Q{
       click_button 'Submit review'
 
       expect(page).to have_content('Rating can\'t be blank')
+    end
+  end
+
+  context 'as a visitor' do
+    scenario 'try to create a review' do
+      airline = FactoryGirl.create(:airline)
+      visit airline_path(airline)
+
+      select('1', from: 'Rating:')
+      fill_in 'Body', with: 'I like this airline'
+      click_button 'Submit review'
+      expect(page).to have_content(
+      'You need to sign in or sign up before continuing.')
     end
   end
 end

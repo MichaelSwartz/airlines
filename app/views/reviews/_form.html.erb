@@ -1,10 +1,13 @@
-<%= form_for [@airline, @review] do |f| %>
-  <%= f.label :rating, "Rating:" %><br>
-  <%= f.select :rating, options_for_select([nil, 1, 2, 3, 4, 5]) %>
 
-  <%= f.label :body %>
-  <%= f.text_field :body %>
+<div class="large-3 columns">
+  <%= form_for [@airline, @review] do |f| %>
+    <%= f.label :rating, "Rating:" %>
+    <%= f.select :rating, options_for_select([nil, 1, 2, 3, 4, 5], selected:  @review.rating) %>
 
-  <%= f.submit (f.object.new_record? ? "Submit review" : "Edit review"),
-                                               class: "button tiny success" %>
-<% end %>
+    <%= f.label :body %>
+    <%= f.text_field :body, value: @review.body%>
+
+    <%= f.submit (f.object.new_record? ? "Submit review" : "Edit review"),
+                                                 class: "button tiny success" %>
+  <% end %>
+</div>

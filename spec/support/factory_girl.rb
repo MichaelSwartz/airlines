@@ -2,22 +2,22 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :user do
-    sequence(:email) {|n| "user#{n}@example.com" }
+    sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
   end
 
   factory :airline do
-    name 'Jet-Blue'
+    sequence(:name) { |n| "Jet Blue #{n}" }
     description 'BLue airline'
     link_url 'www.url.com'
     logo_url 'www.image.com'
   end
 
   factory :review do
-    sequence(:body) {|n| "Some content #{n}" }
+    sequence(:body) { |n| "Some content #{n}" }
     rating '3'
-    user_id 1
-    airline_id 1
+    user
+    airline
   end
 end
