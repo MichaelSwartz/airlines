@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Admin creates an airline" do
 
- context 'Admin creates airline' do
+  context 'Admin creates airline' do
     let(:admin) { FactoryGirl.create(:admin) }
 
     before :each do
@@ -19,7 +19,8 @@ feature "Admin creates an airline" do
       expect(page).to have_content("New Airline Added")
       expect(page).to have_content("Example Airline")
       expect(page).to have_link('Go to Airline Website', href: 'www.example.com')
-      expect(page).to have_xpath("//img[contains(@src,\"http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif\")]")
+      expect(page).to have_xpath(
+      "//img[contains(@src,\"http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif\")]")
     end
 
     scenario "fails to create airline" do
