@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     resources :airlines
     resources :reviews
   end
+  resources :reviews do
+    resources :upvotes
+    resources :downvotes
+  end
 end
