@@ -15,6 +15,11 @@ class Admin::AirlinesController < ApplicationController
     @airline = Airline.new
   end
 
+
+  def edit
+    @airline = Airline.find(params[:id])
+  end
+
   def create
     @airline = current_user.airlines.new(airline_params)
     if @airline.save
@@ -23,6 +28,17 @@ class Admin::AirlinesController < ApplicationController
     else
       flash[:notice] = @airline.errors.full_messages.join(", ")
       render :new
+    end
+  end
+
+  def update
+    @airline = Airline.find(params[:id])
+    if @airline.update(airline_params)
+      flash[:notice] = "Airline updated"
+      redirect_to @airline
+    else
+      flash[:notice] = @airline.errors.full_messages.join(", ")
+      render :edit
     end
   end
 

@@ -1,7 +1,7 @@
 <h1> Edit Airline</h1>
 
 <div>
-  <%= form_for @airline do |f| %>
+  <%= form_for [:admin, @airline] do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 

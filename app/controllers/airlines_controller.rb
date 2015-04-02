@@ -53,7 +53,6 @@ class AirlinesController < ApplicationController
     end
   end
 
-
   protected
   def airline_params
     params.require(:airline).permit(
