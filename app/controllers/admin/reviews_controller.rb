@@ -7,11 +7,10 @@ module Admin
       @airline = @review.airline
 
       if @review.destroy
-        flash[:notice] = "The review has been deleted"
+        flash[:alert] = "The review has been deleted"
       else
-        flash[:notice] = "Failed to delete"
+        flash[:alert] = "Failed to delete"
       end
-
       redirect_to admin_airline_path(@airline)
     end
   end

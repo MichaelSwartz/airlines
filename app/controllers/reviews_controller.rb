@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'Review successfully created'
       redirect_to airline_path(@review.airline_id)
     else
-      flash[:notice] = 'Rating can\'t be blank'
+      flash[:alert] = 'Rating can\'t be blank'
       redirect_to airline_path(@review.airline_id)
     end
   end
@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'Review successfully edited'
       redirect_to airline_path(@airline)
     else
-      flash[:notice] = 'Rating can\'t be blank'
+      flash[:alert] = 'Rating can\'t be blank'
       redirect_to airline_review_path(@airline, @review)
     end
   end
@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @airline = Airline.find(@review.airline_id)
     if @review.destroy
-      flash[:notice] = 'Review successfully deleted'
+      flash[:alert] = 'Review successfully deleted'
     else
       flash[:alert] = "Something went wrong"
     end

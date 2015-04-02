@@ -12,6 +12,7 @@ So that I can delete reviews
       sign_in_as(user)
 
       reviews = []
+      
       25.times do
         reviews << FactoryGirl.create(:review,
           user: user,
