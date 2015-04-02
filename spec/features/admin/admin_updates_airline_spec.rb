@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-feature "Admin creates an airline" do
+feature "Admin updates an airline" do
 
-  context 'Admin creates airline' do
+  context 'Admin updates airline' do
     let(:admin) { FactoryGirl.create(:admin) }
 
     before :each do
