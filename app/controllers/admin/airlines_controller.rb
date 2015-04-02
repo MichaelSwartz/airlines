@@ -15,7 +15,6 @@ class Admin::AirlinesController < ApplicationController
     @airline = Airline.new
   end
 
-
   def edit
     @airline = Airline.find(params[:id])
   end
@@ -56,5 +55,4 @@ class Admin::AirlinesController < ApplicationController
       :name, :logo_url, :link_url, :description
     )
   end
-
 end
