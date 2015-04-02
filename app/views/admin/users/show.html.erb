@@ -8,7 +8,7 @@
   Airlines owned:
   <ul>
     <% @user.airlines.each do |airline| %>
-      <li><%= airline.body %></li>
+      <li><%= airline.name %></li>
     <%- end -%>
   </ul>
 <%- end -%>

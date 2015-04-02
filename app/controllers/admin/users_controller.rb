@@ -10,17 +10,7 @@ module Admin
 
     def show
       @user = User.find(params[:id])
-      airlines_reviewed = Set.new
-
-      @user.reviews.each do |review|
-        airlines_reviewed << review.airline
-      end
-
-      @reviews = Hash.new
-      airlines_reviewed.each do |airline|
-        reviews = @user.reviews.where(airline: airline)
-        @reviews[airline] = reviews
-      end
+      @reviews = @user.reviews_by_airline
     end
 
     def destroy
