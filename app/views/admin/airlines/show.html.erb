@@ -1,18 +1,14 @@
-<strong><%= @airline.name %></strong>
-<div class="panel">
 
-<%= image_tag @airline.logo_url %>
-<p>
+<strong>Admin Airline Page<%= @airline.name %></strong>
+
+<div class="panel">
+  <%= image_tag @airline.logo_url %>
+
   <%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
-</p>
-<p>
-  <%= @airline.description %>
-</p>
-  <% if user_signed_in? %>
-    <% if current_user.id == @airline.user_id %>
-      <%= link_to "Edit Airline", edit_airline_path %>
-    <%- end -%>
-  <%- end -%>
+  <p><%= @airline.description %></p>
+
+  <%= link_to "Edit Airline", edit_admin_airline_path %>
+  <%= button_to "Delete Airline", admin_airline_path, method: :delete %>
 </div>
 
 <table>
@@ -36,5 +32,6 @@
         </tr>
     <% end %>
 </table>
+<%= render 'reviews/form' %>
 
 <%= paginate @reviews %>

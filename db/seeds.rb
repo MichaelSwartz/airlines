@@ -24,6 +24,7 @@ end
     description: Faker::Company.bs,
     user_id: users.sample.id
   )
+
 end
 
 10000.times do

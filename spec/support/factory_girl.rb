@@ -9,7 +9,6 @@ FactoryGirl.define do
     factory :admin do
       admin true
     end
-
   end
 
   factory :airline do
@@ -26,5 +25,4 @@ FactoryGirl.define do
     user
     airline
   end
-
 end

@@ -29,7 +29,8 @@ feature "updating an airline" do
 
       fill_in "Name", with: "Delta Airlines"
       fill_in "Link URL", with: "www.example.com"
-      fill_in "Logo URL", with: "http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif"
+      fill_in "Logo URL",
+       with: "http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif"
       fill_in "Description", with: "delta flies planes!"
 
       click_on "Update Airline"
