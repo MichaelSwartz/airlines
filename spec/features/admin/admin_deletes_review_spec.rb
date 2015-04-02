@@ -11,14 +11,9 @@ So that I can delete reviews
       user = FactoryGirl.create(:admin)
       sign_in_as(user)
 
-      deleted_review = FactoryGirl.create(:review,
-        user: user,
-        rating: (rand(1..4)),
-        body: "To be deleted",
-        airline: airline)
-
+      reviews = []
       25.times do
-        FactoryGirl.create(:review,
+        reviews << FactoryGirl.create(:review,
           user: user,
           rating: (rand(1..4)),
           body: Faker::Lorem.sentence,
@@ -26,6 +21,7 @@ So that I can delete reviews
         )
       end
 
+      deleted_review = reviews.sample
       visit admin_airline_path(airline)
 
       click_link(deleted_review.id)
