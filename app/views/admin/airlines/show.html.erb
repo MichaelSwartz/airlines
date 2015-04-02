@@ -1,0 +1,40 @@
+<strong><%= @airline.name %></strong>
+<div class="panel">
+
+<%= image_tag @airline.logo_url %>
+<p>
+  <%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
+</p>
+<p>
+  <%= @airline.description %>
+</p>
+  <% if user_signed_in? %>
+    <% if current_user.id == @airline.user_id %>
+      <%= link_to "Edit Airline", edit_airline_path %>
+    <%- end -%>
+  <%- end -%>
+</div>
+
+<table>
+    <th>
+      Rating
+    </th>
+    <th>
+      Reviews
+    </th>
+    <% @reviews.each do |review| %>
+        <tr>
+          <td>
+            <%= review.rating %>
+          </td>
+          <td>
+            <%= review.body %>
+          </td>
+          <td>
+            <%= link_to 'Delete', admin_review_path(@airline, review), method: :delete, class: "button tiny alert", id: "#{review.id}" %>
+          </td>
+        </tr>
+    <% end %>
+</table>
+
+<%= paginate @reviews %>

@@ -1,8 +1,9 @@
 class Admin::AirlinesController < ApplicationController
   before_action :authorize_admin!
 
-  def index
-    #@airlines = Airlines.all
+  def show
+    @airline = Airline.find(params[:id])
+    @reviews = @airline.reviews.page(params[:page])
   end
 
   protected
