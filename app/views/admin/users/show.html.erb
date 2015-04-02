@@ -1,8 +1,10 @@
-<strong><%= @user.email %></strong>
+<h5><strong><%= @user.email %></strong></h5>
 
 <%= button_to "Delete User", admin_user_path, method: :delete %>
 
-<% unless @user.airlines.nil? %>
+<br>
+
+<% unless @user.airlines.empty? %>
   Airlines owned:
   <ul>
     <% @user.airlines.each do |airline| %>
@@ -11,7 +13,7 @@
   </ul>
 <%- end -%>
 
-<p>Reviews:</p>
+<h5>Reviews:</h5>
 <ul>
   <% @reviews.each do |airline, reviews| %>
     <li>
