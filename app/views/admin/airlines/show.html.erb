@@ -1,15 +1,14 @@
-<strong>Admin Airline Page<%= @airline.name %></strong>
-<div class="panel">
 
-<%= image_tag @airline.logo_url %>
-<p>
+<strong>Admin Airline Page<%= @airline.name %></strong>
+
+<div class="panel">
+  <%= image_tag @airline.logo_url %>
+
   <%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
-</p>
-<p>
-  <%= @airline.description %>
-</p>
-<%= link_to "Edit Airline", edit_admin_airline_path %>
-<%= button_to "Delete Airline",admin_airline_path, method: :delete %>
+  <p><%= @airline.description %></p>
+
+  <%= link_to "Edit Airline", edit_admin_airline_path %>
+  <%= button_to "Delete Airline", admin_airline_path, method: :delete %>
 </div>
 
 <table>
@@ -27,19 +26,12 @@
           <td>
             <%= review.body %>
           </td>
-          <% if user_signed_in? %>
-            <% if current_user.id == review.user_id %>
           <td>
-            <%= link_to 'Edit', airline_review_path(@airline, review), class: "button tiny alert" %>
-          </td>
-          <td>
-            <%= link_to 'Delete', airline_review_path(@airline, review), method: :delete, class: "button tiny alert" %>
+            <%= link_to 'Delete', admin_review_path(@airline, review), method: :delete, class: "button tiny alert", id: "#{review.id}" %>
           </td>
         </tr>
-        <%- end -%>
-      <%- end -%>
     <% end %>
 </table>
-
 <%= render 'reviews/form' %>
+
 <%= paginate @reviews %>

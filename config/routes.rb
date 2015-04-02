@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :airlines
+    resources :reviews
   end
 end
