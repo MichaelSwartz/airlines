@@ -1,7 +1,16 @@
 class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :airline
+  has_many :votes
 
   validates :rating, presence: true
-  validates :airline_id, presence: true
+  validates :airline, presence: true
+  validates :rating, numericality: { greater_than_or_equal_to: 1 }
+  validates :rating, numericality: { less_than_or_equal_to: 4 }
+  
+
+  def total_votes
+    votes.sum(:vote)
+  end
+
 end

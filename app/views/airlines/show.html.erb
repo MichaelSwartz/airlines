@@ -24,7 +24,7 @@
     </th>
     <% @reviews.each do |review| %>
       <tr>
-          <td>
+        <td>
             <%= link_to 'Upvote', review_upvotes_path(review), method: :post, id: "upvote-#{review.id}"%>
           <td>
             <%= review.rating %>
