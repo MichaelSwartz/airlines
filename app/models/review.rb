@@ -7,10 +7,9 @@ class Review < ActiveRecord::Base
   validates :airline, presence: true
   validates :rating, numericality: { greater_than_or_equal_to: 1 }
   validates :rating, numericality: { less_than_or_equal_to: 4 }
-  
 
   def total_votes
-    votes.sum(:vote)
+    votes.sum(:value)
   end
 
 end
