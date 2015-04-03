@@ -1,0 +1,28 @@
+<h5><strong><%= @user.email %></strong></h5>
+
+<%= button_to "Delete User", admin_user_path, method: :delete %>
+
+<br>
+
+<% unless @user.airlines.empty? %>
+  Airlines owned:
+  <ul>
+    <% @user.airlines.each do |airline| %>
+      <li><%= airline.name %></li>
+    <%- end -%>
+  </ul>
+<%- end -%>
+
+<h5>Reviews:</h5>
+<ul>
+  <% @reviews.each do |airline, reviews| %>
+    <li>
+      <%= airline.name %>
+      <ul>
+        <% reviews.each do |r| %>
+          <li><%= r.body %></li>
+        <% end %>
+      </ul>
+    </li>
+  <%- end -%>
+</ul>

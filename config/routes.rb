@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :airlines
     resources :reviews
+    resources :users
   end
 end
