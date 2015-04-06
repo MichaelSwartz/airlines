@@ -5,12 +5,19 @@ module Admin
     before_action :authorize_admin!
 
     def index
-      @users = User.page(params[:page])
+      @users = User.ordered_by_admin_and_created_at.page(params[:page])
     end
 
     def show
       @user = User.find(params[:id])
       @reviews = @user.reviews_by_airline
+    end
+
+    def update
+      @user = User.find(params[:id])
+      @user.update(admin: true)
+      flash[:alert] = "New admin authorized"
+      redirect_to admin_users_path
     end
 
     def destroy

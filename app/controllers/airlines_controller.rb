@@ -1,5 +1,5 @@
 class AirlinesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @airlines = Airline.page(params[:page])
@@ -38,18 +38,6 @@ class AirlinesController < ApplicationController
     else
       flash[:notice] = @airline.errors.full_messages.join(", ")
       render :new
-    end
-  end
-
-  def destroy
-    @airline = Airline.find(params[:id])
-
-    if @airline.destroy
-      flash[:notice] = "Airline deleted"
-      redirect_to airlines_path
-    else
-      flash[:notice] = @airline.errors.full_messages.join(", ")
-      render :edit
     end
   end
 

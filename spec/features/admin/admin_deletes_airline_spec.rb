@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'admin manages airline details' do
-
   scenario 'admin deletes airline from page' do
     admin = FactoryGirl.create(:admin)
     airline = FactoryGirl.create(:airline)

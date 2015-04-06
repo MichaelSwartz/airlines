@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :airlines
 
+  scope :ordered_by_admin_and_created_at, -> { order(admin: :desc, created_at: :asc) }
+
   def reviews_by_airline
     reviews_hash = Hash.new
 

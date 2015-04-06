@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature "Admin updates an airline" do
-
   context 'Admin updates airline' do
     let(:admin) { FactoryGirl.create(:admin) }
 
