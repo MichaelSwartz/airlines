@@ -5,7 +5,7 @@ module Admin
     before_action :authorize_admin!
 
     def index
-      @users = User.order(admin: :desc, created_at: :asc).page(params[:page])
+      @users = User.ordered_by_admin_and_created_at.page(params[:page])
     end
 
     def show

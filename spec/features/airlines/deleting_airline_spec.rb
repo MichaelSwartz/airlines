@@ -9,9 +9,13 @@ feature "deleting an airline" do
     end
 
     scenario "user should not see an option to delete airline" do
-      delta = FactoryGirl.create(:airline, name: 'Awesome Airlines', description: 'greatest airline description text', user: user )
-      visit airline_path(delta)
+      delta = FactoryGirl.create(:airline,
+        name: 'Awesome Airlines',
+        description: 'greatest airline description text',
+        user: user
+      )
 
+      visit airline_path(delta)
       click_on "Edit Airline"
 
       expect(page).to_not have_content('Delete Airline')
