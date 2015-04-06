@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "user upvotes a review for the second time" do
   context 'as an authorized user' do
-    let(:user) {FactoryGirl.create(:user) }
+    let(:user) { FactoryGirl.create(:user) }
 
     before :each do
       sign_in_as user
