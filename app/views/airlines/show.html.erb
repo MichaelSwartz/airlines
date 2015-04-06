@@ -23,7 +23,10 @@
       Reviews
     </th>
     <% @reviews.each do |review| %>
-        <tr>
+      <tr>
+        <td>
+            <%= link_to 'Upvote', review_upvotes_path(review), method: :post, id: "upvote-#{review.id}"%>
+            <%= review.total_votes %>
           <td>
             <%= review.rating %>
           </td>

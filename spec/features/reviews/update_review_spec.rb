@@ -13,6 +13,7 @@ feature 'user updates review', %Q{
     end
 
     scenario 'user reviews updates sucessfully' do
+
       airline = FactoryGirl.create(:airline)
       FactoryGirl.create(:review, airline: airline, user: user)
 
