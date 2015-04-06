@@ -9,10 +9,9 @@ class Review < ActiveRecord::Base
   validates :rating, numericality: { less_than_or_equal_to: 4 }
 
   def self.search(query)
-    search_condition = "%" + query + "%"
-    find(:all, conditions: ['name ILIKE ?', search_condition])
+    where("body @@ plainto_tsquery(?)", query)
   end
-  
+
   def total_votes
     votes.sum(:value)
   end

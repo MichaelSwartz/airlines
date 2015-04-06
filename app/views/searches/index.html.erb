@@ -1,0 +1,38 @@
+<div class="airlines">
+  <h3>Airlines</h3>
+  <ul>
+    <% @search_result.airlines.each do |airline| %>
+      <li>
+        <%= link_to airline.name, airline_path(airline) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="reviews">
+  <h3>Reviews</h3>
+  <ul>
+    <% @search_result.reviews.each do |review| %>
+      <li>
+        Rating: <%= review.rating %>
+        <%= link_to review.airline.name, airline_path(review.airline) %>
+        <%= review.body %>
+        <%=link_to "Edit", review_path(review.id)%>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="users">
+  <h3>Users</h3>
+  <ul>
+    <% @search_result.users.each do |user| %>
+      <li>
+        <%= user.email %></a>
+        <% if user.admin %>
+          Admin
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
