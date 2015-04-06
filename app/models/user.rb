@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
 
   scope :ordered_by_admin_and_created_at, -> { order(admin: :desc, created_at: :asc) }
 
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, conditions: ['name ILIKE ?', search_condition])
+  end
+
   def reviews_by_airline
     reviews_hash = Hash.new
 
