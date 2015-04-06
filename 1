@@ -20,7 +20,9 @@ feature 'user views reviews in order of total votes' do
         airline: airline
       )
     end
+
     FactoryGirl.create(:vote, user: user, review: not_seen_review, value: -1)
+
     sign_in_as(user)
     visit airline_path(airline)
     expect(page).to_not have_content('Upvote -1 Downvote')
