@@ -3,9 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe "#reviews_by_airline" do
     context 'user has reviews' do
-      user1 = FactoryGirl.create(:review).user
-
       it 'should return reviews namespaced by airline' do
+        user1 = FactoryGirl.create(:review).user
         expect(user1.reviews_by_airline).to eq({user1.reviews.first.airline => [user1.reviews.first]})
       end
     end

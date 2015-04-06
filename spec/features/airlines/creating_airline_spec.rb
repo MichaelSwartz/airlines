@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature "creating an airline" do
-
   context 'as an authorized user' do
     let(:user) { FactoryGirl.create(:user) }
 
@@ -25,7 +24,6 @@ feature "creating an airline" do
     end
 
     scenario "fails to create airline" do
-
       visit root_path
       click_on "Create New Airline"
 
@@ -50,11 +48,10 @@ feature "creating an airline" do
     end
   end
 
-  context "as a vistior" do
+  context "as a visitor" do
     scenario "try to create an airline" do
       visit root_path
       click_on "Create New Airline"
-      click_on "Add Airline"
 
       expect(page).to have_content("You need to sign in or sign up before continuing.")
     end

@@ -7,6 +7,14 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :airlines
 
+  def self.admins
+    User.where(admin: true)
+  end
+
+  def self.non_admins
+    User.where(admin: false)
+  end
+
   def reviews_by_airline
     reviews_hash = Hash.new
 

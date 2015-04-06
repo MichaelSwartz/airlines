@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'user creates review', %Q{
   As an authenticated user
   I want to add an airline

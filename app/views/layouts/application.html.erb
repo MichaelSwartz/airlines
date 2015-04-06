@@ -16,8 +16,10 @@
 
     <section class="top-bar-section">
       <ul class="right">
-
         <%- if current_user -%>
+          <li>
+            <%= link_to "Update Account", edit_user_registration_path %>
+          </li>
           <%- if current_user.admin -%>
           <li><%= link_to 'Admin', admin_airlines_path %></li>
           <%- end -%>

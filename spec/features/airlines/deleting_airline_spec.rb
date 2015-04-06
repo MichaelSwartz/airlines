@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature "deleting an airline" do
-
   context 'as an authorized user' do
     let(:user) { FactoryGirl.create(:user) }
 
@@ -9,15 +8,13 @@ feature "deleting an airline" do
       sign_in_as user
     end
 
-  scenario "airline is deleted and confirmation is displayed" do
-    delta = FactoryGirl.create(:airline, name: 'Awesome Airlines', description: 'greatest airline description text', user: user )
-    visit airline_path(delta)
+    scenario "user should not see an option to delete airline" do
+      delta = FactoryGirl.create(:airline, name: 'Awesome Airlines', description: 'greatest airline description text', user: user )
+      visit airline_path(delta)
 
-    click_on "Edit Airline"
-    click_on "Delete Airline"
-    #add js popup?
-    expect(page).to have_content('Airline deleted')
-    expect(page).to_not have_content('Awesome Airlines')
+      click_on "Edit Airline"
+
+      expect(page).to_not have_content('Delete Airline')
+    end
   end
- end
 end

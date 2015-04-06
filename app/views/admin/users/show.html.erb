@@ -1,7 +1,7 @@
 <h5><strong><%= @user.email %></strong></h5>
 
 <%= button_to "Delete User", admin_user_path, method: :delete %>
-
+<%= button_to "Authorize as Admin", admin_user_path, method: :patch %>
 <br>
 
 <% unless @user.airlines.empty? %>

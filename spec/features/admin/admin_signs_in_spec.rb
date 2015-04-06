@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'admin signs in' do
-
   scenario 'specify admin credentials' do
     admin = FactoryGirl.create(:admin)
     airline = FactoryGirl.create(:airline)
