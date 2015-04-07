@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'user registers', %Q{
   As a visitor
   I want to register

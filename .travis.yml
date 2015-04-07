@@ -3,3 +3,7 @@ rvm:
   - 2.0.0  # replace this with the ruby version you are using in development
 before_script:
   - psql -c 'create database airlines_test;' -U postgres
+env:
+  -AWS_ACCESS_KEY_ID="fjklfdjsaklf"
+  -AWS_SECRET_ACCESS_KEY="fdjskarwiporejafdsklafhdjsakfhjsk"
+  -S3_BUCKET="myapp-development" 

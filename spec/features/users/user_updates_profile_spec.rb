@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'user updates profile', %Q{
   As a user
   I want to update my profile
