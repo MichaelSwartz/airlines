@@ -13,7 +13,7 @@ FactoryGirl.define do
 
   factory :airline do
     sequence(:name) { |n| "Jet Blue #{n}" }
-    description 'BLue airline'
+    description 'Blue airline'
     link_url 'www.url.com'
     logo_url 'www.image.com'
     user
