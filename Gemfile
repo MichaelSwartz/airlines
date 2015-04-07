@@ -11,6 +11,10 @@ gem 'kaminari'
 gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor', group: :production
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'fog'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and
+  # :omniauthable mount_uploader :profile_photo, ProfilePhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
   has_many :reviews
   has_many :airlines
-
+  mount_uploader :profile_photo, ProfilePhotoUploader
   scope :ordered_by_admin_and_created_at, -> { order(admin: :desc, created_at: :asc) }
 
   def self.search(query)
