@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :users
   end
-  
+
   resources :reviews do
     resources :upvotes
     resources :downvotes

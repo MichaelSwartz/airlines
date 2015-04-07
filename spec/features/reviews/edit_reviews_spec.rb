@@ -13,7 +13,7 @@ feature 'editing reviews' do
 
     scenario 'User sees edit button next to review that she created' do
       visit airline_path(airline)
-      save_and_open_page
+
       expect(page).to have_link('Edit', href: "/airlines/#{airline.id}/reviews/#{my_review.id}")
     end
 

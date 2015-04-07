@@ -26,5 +26,4 @@ class SearchResult
     Review.search(query).each { |review| results_array << review }
     results_array
   end
-
 end
