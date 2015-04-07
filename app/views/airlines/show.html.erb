@@ -27,6 +27,7 @@
       <td>
         <%= link_to 'Upvote', review_upvotes_path(review), method: :post, id: "upvote-#{review.id}"%>
         <%= review.total_votes %>
+        <%= link_to 'Downvote', review_downvotes_path(review), method: :post, id: "downvote-#{review.id}"%>
       </td>
       <td>
         <%= "★" * review.rating %>

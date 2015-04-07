@@ -25,4 +25,10 @@ FactoryGirl.define do
     user
     airline
   end
+
+  factory :vote do
+    value 0
+    user
+    review
+  end
 end

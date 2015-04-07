@@ -15,7 +15,7 @@ class UpvotesController < ApplicationController
       flash[:notice] = "Upvote Created"
     when @upvote.value == 1
       flash[:notice] = "You've already upvoted!"
-    when
+    else
       @upvote.value += 1
       @upvote.save
       flash[:notice] = "Upvote Submitted!"
