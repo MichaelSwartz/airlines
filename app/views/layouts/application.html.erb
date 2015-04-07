@@ -16,6 +16,14 @@
 
     <section class="top-bar-section">
       <ul class="right">
+        <li>
+          <%= form_tag(searches_path, method: :get) do %>
+            <%= label_tag(:query, "Search") %>
+            <%= text_field_tag(:query) %>
+            <%= submit_tag("Search") %>
+          <% end %>
+        </li>
+
         <%- if current_user -%>
           <li>
             <%= link_to "Profile", user_path(current_user) %>

@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   mount_uploader :profile_photo, ProfilePhotoUploader
   scope :ordered_by_admin_and_created_at, -> { order(admin: :desc, created_at: :asc) }
 
+  def self.search(query)
+    where("email ilike :q", q: "%#{query}%")
+  end
+
   def reviews_by_airline
     reviews_hash = Hash.new
 
