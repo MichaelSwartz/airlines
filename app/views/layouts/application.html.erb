@@ -17,13 +17,15 @@
     <section class="top-bar-section">
       <ul class="right">
         <li>
-          <%= form_tag(searches_path, method: :get) do %>
-            <%= label_tag(:query, "Search") %>
-            <%= text_field_tag(:query) %>
-            <%= submit_tag("Search") %>
-          <% end %>
+          <div class="row collapse postfix-round">
+              <div class="small-9 columns">
+                <input type="text">
+              </div>
+              <div class="small-3 columns">
+                <%= button_to "Submit", { action: "index"}, form_class: "button postfix" %>
+              </div>
+          </div>
         </li>
-
         <%- if current_user -%>
           <li>
             <%= link_to "Update Account", edit_user_registration_path %>
