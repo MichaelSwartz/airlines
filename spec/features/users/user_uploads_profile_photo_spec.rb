@@ -4,7 +4,7 @@ feature 'user registers', %Q{
   As a visitor
   I want to register
   So that I can create an account
-  and upload a prifile photo
+  and upload a profile photo
 } do
 
   scenario 'provide valid registration information with profile photo' do
