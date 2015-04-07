@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'airlines#index'
   devise_for :users
 
+  resources :users
+
   resources :searches, only: :index
 
   resources :airlines do

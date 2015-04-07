@@ -1,29 +1,25 @@
 require 'rails_helper'
 
-feature 'user updates profile', %Q{
-  As a user
-  I want to update my profile
-  so that I can change my email
-  and profile photo
+feature 'user registers', %Q{
+  As a visitor
+  I want to register
+  So that I can create an account
+  and upload a profile photo
 } do
-  let(:user) { FactoryGirl.create(:user) }
 
-  before :each do
-    sign_in_as user
-  end
   scenario 'provide valid registration information with profile photo' do
-    click_link('Profile')
-    click_on('Update Account')
+    visit new_user_registration_path
 
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
-    fill_in 'Current password', with: "#{user.password}"
     attach_file "Profile photo", 'spec/fixtures/images.png'
-    click_button 'Update'
+    click_button 'Sign up'
 
-    expect(page).to have_content('Your account has been updated successfully.')
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Sign Out')
     click_link('Profile')
+    user = User.find_by(email: 'john@example.com' )
     path = "uploads/user/profile_photo/#{user.id}/images.png"
     expect(page).to have_xpath("//img[contains(@src,#{path})]")
   end
