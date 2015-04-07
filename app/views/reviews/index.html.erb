@@ -3,7 +3,7 @@
     <li>
       Rating: <%= review.rating %>
       <%= review.body %>
-      <%=link_to "Edit", review_path(review.id)%>
+      <%= link_to "Edit", review_path(review.id) %>
     </li>
   <% end %>
 </ul>

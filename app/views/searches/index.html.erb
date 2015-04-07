@@ -11,28 +11,39 @@
 
 <div class="reviews">
   <h3>Reviews</h3>
-  <ul>
-    <% @search_result.reviews.each do |review| %>
-      <li>
-        Rating: <%= review.rating %>
-        <%= link_to review.airline.name, airline_path(review.airline) %>
-        <%= review.body %>
-        <%=link_to "Edit", review_path(review.id)%>
-      </li>
-    <% end %>
-  </ul>
-</div>
 
-<div class="users">
-  <h3>Users</h3>
-  <ul>
-    <% @search_result.users.each do |user| %>
-      <li>
-        <%= user.email %></a>
-        <% if user.admin %>
-          Admin
-        <% end %>
-      </li>
+  <table>
+    <th>
+      Airline
+    </th>
+    <th>
+      Rating
+    </th>
+    <th>
+      Review
+    </th>
+    <% @search_result.reviews.each do |review| %>
+      <tr>
+        <td>
+          <%= link_to review.airline.name, airline_path(review.airline) %>
+        </td>
+        <td>
+          <%= "★" * review.rating %>
+        </td>
+        <td>
+          <%= review.body %>
+        </td>
+        <% if user_signed_in? %>
+          <% if current_user.id == review.user_id %>
+            <td>
+              <%= link_to 'Edit', airline_review_path(@airline, review), class: "button tiny alert" %>
+            </td>
+            <td>
+              <%= link_to 'Delete', airline_review_path(@airline, review), method: :delete, class: "button tiny alert" %>
+            </td>
+          <%- end -%>
+        <%- end -%>
+      </tr>
     <% end %>
-  </ul>
+  </table>
 </div>

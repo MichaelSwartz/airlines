@@ -16,35 +16,36 @@
 </div>
 
 <table>
-    <th>
-      Rating
-    </th>
-    <th>
-      Reviews
-    </th>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td>
-            <%= link_to 'Upvote', review_upvotes_path(review), method: :post, id: "upvote-#{review.id}"%>
-            <%= review.total_votes %>
-          <td>
-            <%= review.rating %>
-          </td>
-          <td>
-            <%= review.body %>
-          </td>
-          <% if user_signed_in? %>
-            <% if current_user.id == review.user_id %>
+  <th>
+    Rating
+  </th>
+  <th>
+    Review
+  </th>
+  <% @reviews.each do |review| %>
+    <tr>
+      <td>
+        <%= link_to 'Upvote', review_upvotes_path(review), method: :post, id: "upvote-#{review.id}"%>
+        <%= review.total_votes %>
+      </td>
+      <td>
+        <%= "★" * review.rating %>
+      </td>
+      <td>
+        <%= review.body %>
+      </td>
+      <% if user_signed_in? %>
+        <% if current_user.id == review.user_id %>
           <td>
             <%= link_to 'Edit', airline_review_path(@airline, review), class: "button tiny alert" %>
           </td>
           <td>
             <%= link_to 'Delete', airline_review_path(@airline, review), method: :delete, class: "button tiny alert" %>
           </td>
-        </tr>
         <%- end -%>
       <%- end -%>
-    <% end %>
+    </tr>
+  <% end %>
 </table>
 
 <%= render 'reviews/form' %>

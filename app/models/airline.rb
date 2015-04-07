@@ -5,9 +5,6 @@ class Airline < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def self.search(query)
-    where("name @@ plainto_tsquery(?)", query)
-    #
-    # search_condition = "%" + query + "%"
-    # find(:all, conditions: ['name ILIKE ?', search_condition])
+    where("name ilike :q or description ilike :q", q: "%#{query}%")
   end
 end
