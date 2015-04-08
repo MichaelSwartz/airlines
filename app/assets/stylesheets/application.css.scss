@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require font-awesome
  */
 
-@import 'modules/topbar';
-@import url(http://fonts.googleapis.com/css?family=Lobster);
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
