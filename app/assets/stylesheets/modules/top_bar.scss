@@ -27,11 +27,18 @@
 
   .button {
     background-color: $button-bg-color;
-
+    min-width: 100%;
   }
 }
+
 .top-bar-section li:not(.has-form) a:not(.button) {
   padding: 0 0.9375rem;
   line-height: 2.8125rem;
   background: $topbar-bg-color;
+  font-family: Lato;
+}
+
+.top-bar-section ul:not(.has-form) a:not(.buttom) {
+  padding-top: 10px;
+  font-family: Lato;
 }
