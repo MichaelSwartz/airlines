@@ -15,7 +15,7 @@ feature "user downvotes a review" do
       click_link("downvote-#{review.id}")
 
       expect(page).to have_content('Downvote Created')
-      expect(page).to have_content('Upvote -1 Downvote')
+      expect(page).to have_content('-1')
 
     end
   end

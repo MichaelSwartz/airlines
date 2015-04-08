@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require font-awesome
  */
 
-@import 'modules/landing';
+@import "modules/landing";
+
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
