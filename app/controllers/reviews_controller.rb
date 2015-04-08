@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.new(review_params)
     @review.airline_id = params[:airline_id]
     if @review.save
+      ReviewNotifier.new_review(@review).deliver_later
       flash[:notice] = 'Review successfully created'
       redirect_to airline_path(@review.airline_id)
     else
