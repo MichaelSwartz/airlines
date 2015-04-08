@@ -1,0 +1,8 @@
+Hi <%= @review.airline.user.email %>,
+
+<%= @review.user.email %> has reviewed your airline <%= link_to @review.airline.name, airline_path(@review.airline) %>!!
+
+<%= link_to "They said:", review_path(@review) %>
+    <%= @review.summary %>
+
+Enjoy!
