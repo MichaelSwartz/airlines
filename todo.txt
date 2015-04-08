@@ -1,1 +1,0 @@
-- add unique validation to airline name in model

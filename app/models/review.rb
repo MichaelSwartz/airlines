@@ -16,4 +16,7 @@ class Review < ActiveRecord::Base
     votes.sum(:value)
   end
 
+  def summary
+    body[0..30] || self.body
+  end
 end
