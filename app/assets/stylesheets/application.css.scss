@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+
  */
 
- @import 'modules/top_bar';
+ @import 'modules/topbar';
  @import url(http://fonts.googleapis.com/css?family=Lobster);
  @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
