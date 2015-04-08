@@ -1,0 +1,21 @@
+.welcome {
+  background-image: image-url("plane_wing.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+
+  h2 {
+    color: orange;
+    text-align: center;
+    padding: 15px;
+  }
+
+  img {
+    width:auto;
+    height:auto;
+  }
+}
+
+.image-attribution {
+  text-align: right;
+}
