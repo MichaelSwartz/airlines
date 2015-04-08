@@ -2,26 +2,34 @@
 
 .top-bar {
   background: $topbar-bg-color;
+
   .row {
     background-color: $topbar-bg-color;
+  }
+
+  .name h1 {
+    color: #FFFFFF;
+    width: 75%;
+    display: block;
+    padding: 0 0.9375rem;
+    font-family: Lobster;
+    width: 300px;
+  }
+
+  .row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: 350px;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 62.5rem;
+  }
+
+  .button {
+    background-color: $button-bg-color;
 
   }
 }
-
-.row {
-  width: 100%;
-  margin-left: auto;
-  margin-right: 350px;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 62.5rem;
-}
-
-.button {
-  background-color: $button-bg-color;
-
-}
-
 .top-bar-section li:not(.has-form) a:not(.button) {
   padding: 0 0.9375rem;
   line-height: 2.8125rem;
