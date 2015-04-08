@@ -1,13 +1,14 @@
+<div class="container">
 <h1>Airlines</h1>
 
 <%= link_to "Create New Airline", new_airline_path  %>
-
-<ul>
+<ul class="small-block-grid-3">
   <% @airlines.each do |airline| %>
     <li>
-      <a href="<%= airline_path(airline) %>"><%= airline.name %></a>
+    <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" %></a>
+    <p><a href="<%= airline_path(airline) %>"><%= airline.name %></a></p>
     </li>
-  <% end %>
+  <%-end-%>
 </ul>
-
+</div>
 <%= paginate @airlines %>

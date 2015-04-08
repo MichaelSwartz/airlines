@@ -16,7 +16,7 @@ feature "user upvotes a review for the second time" do
       click_link("upvote-#{review.id}")
 
       expect(page).to have_content('You\'ve already upvoted!')
-      expect(page).to have_content('Upvote 1')
+      expect(page).to have_content('1')
 
     end
   end

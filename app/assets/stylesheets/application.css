@@ -13,5 +13,10 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require font-awesome
  */
+
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
