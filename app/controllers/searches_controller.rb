@@ -1,6 +1,10 @@
 class SearchesController < ApplicationController
   def index
-    @search_result = SearchResult.new(params[:query])
-    @results_count = @search_result.total
+    if params["query"].empty?
+      redirect_to :back
+    else
+      @search_result = SearchResult.new(params[:query])
+      @results_count = @search_result.total
+    end
   end
 end
