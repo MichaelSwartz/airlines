@@ -2,6 +2,7 @@
 
 .top-bar {
   background: $topbar-bg-color;
+
 }
 
 .row {
@@ -17,3 +18,9 @@
  background-color: $button-bg-color;
 
  }
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  padding: 0 0.9375rem;
+  line-height: 2.8125rem;
+  background: $topbar-bg-color;
+}
