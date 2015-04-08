@@ -1,30 +1,30 @@
 @import "variables";
 
 .top-bar {
- background: $topbar-bg-color;
+  background: $topbar-bg-color;
 
- .name h1 {
-   color: #ffffff;
-   display: block;
-   font-family: Lobster;
-   padding: 0 0.9375rem;
-   width: 75%;
-   width: 300px;
- }
+  .name h1 {
+    color: #ffffff;
+    display: block;
+    font-family: Lobster;
+    padding: 0 0.9375rem;
+    width: 75%;
+    width: 300px;
+  }
 
- .row {
-   background-color: $topbar-bg-color;
-   margin-bottom: 0;
-   margin-left: auto;
-   margin-right: 350px;
-   margin-top: 0;
-   max-width: 62.5rem;
- }
+  .row {
+    background-color: $topbar-bg-color;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: 350px;
+    margin-top: 0;
+    max-width: 62.5rem;
+  }
 
- .button {
-   background-color: $button-bg-color;
-   min-width: 100%;
- }
+  .button {
+    background-color: $button-bg-color;
+    min-width: 100%;
+  }
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
