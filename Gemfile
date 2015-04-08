@@ -11,6 +11,9 @@ gem 'kaminari'
 gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor', group: :production
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'
@@ -25,6 +28,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers'
+  gem 'dotenv-rails'
 end
 
 ruby "2.0.0"
