@@ -2,7 +2,10 @@
 
 .top-bar {
   background: $topbar-bg-color;
+  .row {
+    background-color: $topbar-bg-color;
 
+  }
 }
 
 .row {
@@ -15,9 +18,9 @@
 }
 
 .button {
- background-color: $button-bg-color;
+  background-color: $button-bg-color;
 
- }
+}
 
 .top-bar-section li:not(.has-form) a:not(.button) {
   padding: 0 0.9375rem;
