@@ -3,25 +3,21 @@
 .top-bar {
   background: $topbar-bg-color;
 
-  .row {
-    background-color: $topbar-bg-color;
-  }
-
   .name h1 {
-    color: #FFFFFF;
-    width: 75%;
+    color: #ffffff;
     display: block;
-    padding: 0 0.9375rem;
     font-family: Lobster;
+    padding: 0 0.9375rem;
+    width: 75%;
     width: 300px;
   }
 
   .row {
-    width: 100%;
+    background-color: $topbar-bg-color;
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: 350px;
     margin-top: 0;
-    margin-bottom: 0;
     max-width: 62.5rem;
   }
 
