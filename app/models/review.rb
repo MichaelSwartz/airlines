@@ -17,6 +17,6 @@ class Review < ActiveRecord::Base
   end
 
   def summary
-    self.body[0..30] || self.body
+    body[0..30] || self.body
   end
 end
