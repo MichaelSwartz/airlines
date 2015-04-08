@@ -5,7 +5,7 @@
     <%= f.select :rating, options_for_select([nil, 1, 2, 3, 4, 5], selected:  @review.rating) %>
   </div>
 
-  <div class="medium-10 large-10 columns">
+  <div class="medium-8 large-8 columns">
     <%= f.label :body %>
     <%= f.text_field :body, value: @review.body%>
   </div>
