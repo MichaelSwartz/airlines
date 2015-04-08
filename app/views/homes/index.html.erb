@@ -1,1 +1,13 @@
-<%= link_to "Create New Airline", new_airline_path  %>
+<%- if current_user -%>
+  <h1>Welcome back, <%= current_user.email %>!</h1>
+<%- else -%>
+  <h1>
+    Welcome! <%= link_to 'Sign Up', new_user_registration_path %> or
+    <%= link_to 'Sign In', new_user_session_path %>
+  </h1>
+<%- end -%>
+
+<%= form_tag(searches_path, method: :get) do %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>

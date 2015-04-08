@@ -5,8 +5,8 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -16,14 +16,6 @@
 
     <section class="top-bar-section">
       <ul class="right">
-        <li>
-          <%= form_tag(searches_path, method: :get) do %>
-            <%= label_tag(:query, "Search") %>
-            <%= text_field_tag(:query) %>
-            <%= submit_tag("Search") %>
-          <% end %>
-        </li>
-
         <%- if current_user -%>
           <li>
             <%= link_to "Profile", user_path(current_user) %>
@@ -32,9 +24,6 @@
             <li><%= link_to 'Admin', admin_airlines_path %></li>
           <%- end -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
     </section>

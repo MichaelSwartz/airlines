@@ -9,7 +9,7 @@ feature "creating an airline" do
     end
 
     scenario "succesfully creates airline" do
-      visit root_path
+      visit airlines_path
       click_on "Create New Airline"
 
       fill_in "Name", with: "Example Airline"
@@ -24,7 +24,7 @@ feature "creating an airline" do
     end
 
     scenario "fails to create airline" do
-      visit root_path
+      visit airlines_path
       click_on "Create New Airline"
 
       fill_in "Name", with: ""
@@ -37,7 +37,7 @@ feature "creating an airline" do
     scenario "user attempts to create duplicate airline, but the code says oh no you ditint" do
       FactoryGirl.create(:airline, name: 'Delta Airlines')
 
-      visit root_path
+      visit airlines_path
       click_on "Create New Airline"
 
       fill_in "Name", with: "Delta Airlines"
@@ -50,7 +50,7 @@ feature "creating an airline" do
 
   context "as a visitor" do
     scenario "try to create an airline" do
-      visit root_path
+      visit airlines_path
       click_on "Create New Airline"
 
       expect(page).to have_content("You need to sign in or sign up before continuing.")
