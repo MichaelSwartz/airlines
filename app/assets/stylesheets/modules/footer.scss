@@ -1,10 +1,11 @@
 @import "variables";
 
 .footer {
-
   background: $blue;
-  height: 300px;
   color: $white;
+  height: 300px;
+  position: absolute;
+  bottom: 0px;
 
   .header {
     font-family: Lato;
@@ -15,27 +16,27 @@
   h2 {
     font-family: Lato;
     line-height: 1.4;
-    color: white;
+    color: $white;
   }
 
   hr {
-    border: solid #DDDDDD;
+    border: solid #dddddd;
     border-width: 1px 0 0;
     clear: both;
+    height: 0;
     margin: 1.25rem 0 1.1875rem;
     margin-left: 650px;
     margin-right: 650px;
-    height: 0;
   }
   .gen {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-    -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: relative;
+    width: 100px;
+    overflow: hidden;
+    height: 100px;
     border-radius: 50%;
     img {
       object-fit: cover;
