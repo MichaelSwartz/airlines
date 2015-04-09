@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Frqnt Flyr</title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= csrf_meta_tags %>
+<title>Frqnt Flyr</title>
+<%= stylesheet_link_tag 'application', media: 'all' %>
+<%= csrf_meta_tags %>
 </head>
-
 <body>
   <nav class="top-bar">
     <ul class="title-area">
@@ -13,7 +12,6 @@
         <h1><a href="/">Frqnt Flyr</a></h1>
       </li>
     </ul>
-
     <section class="top-bar-section">
       <ul class="right">
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -26,18 +24,25 @@
             <li><%= link_to 'Admin', admin_airlines_path %></li>
           <%- end -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <%- else -%>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
-      </ul>
-    </section>
-  </nav>
+    </ul>
+  </section>
+</nav>
 
+<div class=container>
   <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
+    <div class="alert-box alert radius">
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
     </div>
   <%- end -%>
+</div>
 
-  <%= yield %>
+<%= yield %>
 
   <%= javascript_include_tag 'application' %>
   <%= render "layouts/footer" %>
