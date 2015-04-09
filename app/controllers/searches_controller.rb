@@ -6,6 +6,5 @@ class SearchesController < ApplicationController
       @search_result = SearchResult.new(params[:query])
       @results_count = @search_result.total
     end
-    
   end
 end

@@ -1,17 +1,13 @@
 
-.circular {
-  width: 200px;
-  height:200px;
-  border-radius:50%;
-  margin:25px;
-}
-
 .circular img {
-  border-radius:50%;
-  transition: transform 0.5s ease;
+  height:200px;
+  margin:25px;
+  width: 200px;
+  border-radius: 50%;
   transform: scale(0.8);
+  transition: transform 0.5s ease;
 }
 
 .circular img:hover {
-  transform: scale(.9);
+  transform: scale(0.9);
 }
