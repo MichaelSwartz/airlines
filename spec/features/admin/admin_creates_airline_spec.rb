@@ -19,7 +19,7 @@ feature "Admin creates an airline" do
       click_on "Add Airline"
       expect(page).to have_content("New Airline Added")
       expect(page).to have_content("Example Airline")
-      expect(page).to have_link('Go to Airline Website', href: 'www.example.com')
+      expect(page).to have_link("Go to Airline Website", href: 'www.example.com')
       expect(page).to have_xpath(
       "//img[contains(@src,\"http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif\")]")
     end

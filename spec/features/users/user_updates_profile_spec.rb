@@ -13,7 +13,7 @@ feature 'user updates profile', %Q{
   end
   scenario 'provide valid registration information with profile photo' do
     click_link('Profile')
-    click_on('Update Account')
+    click_on('Update Profile')
 
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
