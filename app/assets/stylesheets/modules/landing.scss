@@ -1,18 +1,15 @@
 @import "variables";
 
-h2 {
-  text-align: center;
-}
-
 .welcome {
-  text-align: center;
   background-image: image-url("plane_wing.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
   position: relative;
+  text-align: center;
 
   .big-text {
+    margin: 0 auto;
     position: absolute;
     text-align: center;
     padding: 15px;
@@ -55,6 +52,6 @@ h2 {
 
 .featured-airlines {
   font-family: Lato;
-  text-align: center;
   padding: 50px;
+  text-align: center;
 }
