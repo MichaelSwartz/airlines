@@ -7,4 +7,15 @@ class Airline < ActiveRecord::Base
   def self.search(query)
     where("name ilike :q or description ilike :q", q: "%#{query}%")
   end
+
+  def average_rating
+    sum = self.reviews.all.inject(0) { |sum, review| sum += review.rating }
+    count = reviews.count || 1
+    sum.to_f / count
+  end
+
+  def self.sort_by_rating
+    all.sort { |x, y| y.average_rating <=> x.average_rating }
+  end
 end
+
