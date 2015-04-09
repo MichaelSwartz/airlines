@@ -10,7 +10,9 @@ class Airline < ActiveRecord::Base
 
   def average_rating
     return 0 if reviews.empty?
-    sum = reviews.all.inject(0) { |running_total, review| running_total += review.rating  }
+    sum = reviews.all.inject(0) do |total, review|
+      total += review.rating
+    end
     count = reviews.count
     sum.to_f / count
   end
