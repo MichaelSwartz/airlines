@@ -2,6 +2,6 @@ class HomesController < ApplicationController
   layout "home"
 
   def index
-    @airlines = Airline.limit(3)
+    @airlines = Airline.sort_by_rating[0..2]
   end
 end

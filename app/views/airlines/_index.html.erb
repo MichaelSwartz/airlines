@@ -3,6 +3,16 @@
     <li>
       <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" %></a>
       <p><a href="<%= airline_path(airline) %>"><%= airline.name %></a></p>
+      <% airline.average_rating.floor.times do %>
+        <i class="fa fa-star"></i>
+      <%-end-%>
+      <% (airline.average_rating - airline.average_rating.floor).round.times do %>
+        <i class="fa fa-star-half-full"></i>
+      <%-end-%>
+      <% (4-airline.average_rating).floor.times do %>
+        <i class="fa fa-star-o"></i>
+      <%-end-%>
+      <%= airline.average_rating.round(2) %> stars
     </li>
   <%-end-%>
 </ul>

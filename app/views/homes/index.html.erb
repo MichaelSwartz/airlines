@@ -4,7 +4,7 @@
       <div class="big-text">
         <div class="small-12 small-centered columns">
           <h1>Let's Fly!</h1>
-          <h2>Review Your Favorite Airlines</h2>
+          <h3>Review Your Favorite Airlines</h3>
         </div>
       </div>
     </div>
@@ -30,7 +30,6 @@
     </div>
   </div>
 </div>
-
 <div class="image-attribution">
   Image courtesy of <%= link_to "JFXie", "http://tinyurl.com/pwuk6ef" %>
 <div>
@@ -38,4 +37,5 @@
 <div class="featured-airlines">
   <h2>Featured Airlines</h2>
   <%= render "airlines/index" %>
+  <%= link_to "See All Airlines", airlines_path, class: "button large" %>
 </div>

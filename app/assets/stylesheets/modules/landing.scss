@@ -4,22 +4,22 @@
   background-image: image-url("plane_wing.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 400px;
   position: relative;
   text-align: center;
 
   .big-text {
     margin: 0 auto;
-    padding: 15px;
-    position: absolute;
+    padding: 5px;
+    position: relative;
     text-align: center;
-    top: 70px;
+    top: 50px;
 
     h1 {
       color: $white;
     }
 
-    h2 {
+    h3 {
       color: $white;
     }
   }
@@ -32,7 +32,7 @@
   .search {
     margin: 0 auto;
     position: relative;
-    top: 400px;
+    top: 125px;
   }
 }
 
@@ -44,6 +44,7 @@
 
 h1 {
   font-family: Lato;
+  font-size: 100px;
 }
 
 h2 {
@@ -51,7 +52,15 @@ h2 {
 }
 
 .featured-airlines {
+  h2 {
+    color: $pink;
+    font-weight: bold;
+  }
+
   font-family: Lato;
-  padding: 50px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 15px;
   text-align: center;
 }
