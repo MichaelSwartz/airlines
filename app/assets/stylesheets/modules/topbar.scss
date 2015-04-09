@@ -8,11 +8,11 @@
     display: block;
     font-family: Lobster;
     padding: 0 0.9375rem;
-    width: 75%;
+    width: 100%;
   }
 
   .row {
-    background-color: $topbar-bg-color;
+    background-color: $blue;
     margin-bottom: 0;
     margin-left: auto;
     margin-right: 350px;
@@ -21,8 +21,10 @@
   }
 
   .button {
-    background-color: $button-bg-color;
+    background-color: $pink;
     min-width: 100%;
+    font-family:Lato;
+    font-size: 10px;
   }
 }
 

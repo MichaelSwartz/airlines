@@ -1,0 +1,44 @@
+@import "variables";
+
+.footer {
+
+  background: $blue;
+  height: 300px;
+  color: $white;
+
+  .header {
+    font-family: Lato;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: Lato;
+    line-height: 1.4;
+    color: white;
+  }
+
+  hr {
+    border: solid #DDDDDD;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 1.25rem 0 1.1875rem;
+    margin-left: 650px;
+    margin-right: 650px;
+    height: 0;
+  }
+  .gen {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    img {
+      object-fit: cover;
+    }
+  }
+}
