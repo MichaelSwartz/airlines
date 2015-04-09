@@ -33,6 +33,7 @@ class AirlinesController < ApplicationController
 
   def create
     @airline = current_user.airlines.new(airline_params)
+    @airline.default_img
     if @airline.save
       flash[:notice] = "New Airline Added"
       redirect_to @airline
