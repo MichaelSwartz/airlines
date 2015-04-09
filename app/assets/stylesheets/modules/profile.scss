@@ -1,9 +1,9 @@
 
 .circular img {
+  border-radius: 50%;
   height:200px;
   margin:25px;
   width: 200px;
-  border-radius: 50%;
   transform: scale(0.8);
   transition: transform 0.5s ease;
 }
