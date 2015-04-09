@@ -9,7 +9,7 @@ class Airline < ActiveRecord::Base
   end
 
   def average_rating
-    sum = self.reviews.all.inject(0) { |sum, review| sum += review.rating }
+    sum = reviews.all.inject(0) { |running_total, review| running_total += review.rating }
     count = reviews.count || 1
     sum.to_f / count
   end
@@ -18,4 +18,3 @@ class Airline < ActiveRecord::Base
     all.sort { |x, y| y.average_rating <=> x.average_rating }
   end
 end
-
