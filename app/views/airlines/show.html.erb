@@ -1,52 +1,61 @@
 
-<div class=container>
-<h3><strong><%= @airline.name %></strong></h3>
-
-  <%= image_tag @airline.logo_url %>
-  <p>
-  <%= link_to "Go to Airline Website", @airline.link_url, target: '_blank' %>
-  </p>
-  <div class="panel">
-    <p>
-    <%= @airline.description %>
-    </p>
+  <h3><strong><%= @airline.name %></strong></h3>
+  <div class="row">
+    <div class="medium-6 large-6 columns">
+      <%= image_tag @airline.logo_url %>
+      <p>
+      <%= link_to "#{@airline.name} Website", @airline.link_url, target: '_blank' %>
+      </p>
+    </div>
+    <div class="medium-6 large-6 columns">
+      <p>
+      <%= @airline.description %>
+      </p>
+    </div>
   </div>
   <% if user_signed_in? %>
     <% if current_user.id == @airline.user_id %>
-      <%= link_to "Edit Airline", edit_airline_path %>
-    <%-end-%>
-  <%-end-%>
+    <%= link_to "Edit Airline", edit_airline_path %>
+<%-end-%>
+<%-end-%>
 
-<h4>How was your flight?</h4>
-<%= render 'reviews/form' %>
+  <h4>How was your flight?</h4>
+  <%= render 'reviews/form' %>
 
-<h4>Reviews</h4>
+  <h4>Reviews</h4>
 
-<% @reviews.each do |review| %>
-  <div class="panel callout radius">
-  <%= link_to review_upvotes_path(review), method: :post, id: "upvote-#{review.id}" do %>
-    <i class="fa fa-arrow-up"></i>
-  <%-end-%>
-  <%= review.total_votes %>
-  <%= link_to review_downvotes_path(review), method: :post, id: "downvote-#{review.id}" do %>
-    <i class="fa fa-arrow-down"></i>
-  <%-end-%>
-
-  <% review.rating.times do %>
-    <i class="fa fa-star"></i>
-  <%-end-%>
-  <% (5-review.rating).times do %>
-    <i class="fa fa-star-o"></i>
-  <%-end-%>
-
-  <p><%= review.body %></p>
-  <% if user_signed_in? %>
-    <% if current_user.id == review.user_id %>
+  <% @reviews.each do |review| %>
+    <div class="panel callout radius">
+    <div class="row">
+      <div class="medium-2 large-2 columns">
+        <%= link_to review_upvotes_path(review), method: :post, id: "upvote-#{review.id}" do %>
+          <i class="fa fa-arrow-up"></i>
+      <%-end-%>
+        <%= review.total_votes %>
+        <%= link_to review_downvotes_path(review), method: :post, id: "downvote-#{review.id}" do %>
+          <i class="fa fa-arrow-down"></i>
+      <%-end-%>
+      </div>
+      <div class="medium-3 large-3 columns">
+        <% review.rating.times do %>
+          <i class="fa fa-star"></i>
+      <%-end-%>
+        <% (5-review.rating).times do %>
+          <i class="fa fa-star-o"></i>
+      <%-end-%>
+      </div>
+      <div class="medium-4 large-4 columns">by <%=review.user.email%></div>
+      <div class="medium-3 large-3 columns">
+        <%=review.updated_at.to_formatted_s(:long) %>
+      </div>
+    </div>
+    <p><%= review.body %></p>
+    <% if user_signed_in? %>
+      <% if current_user.id == review.user_id %>
       <%= link_to 'Edit', airline_review_path(@airline, review), class: "button tiny alert" %>
-      <%= link_to 'Delete', airline_review_path(@airline, review), method: :delete, class: "button tiny alert" %>
-    <%- end -%>
-   <%- end -%>
-</div>
+    <%= link_to 'Delete', airline_review_path(@airline, review), method: :delete, class: "button tiny alert" %>
+  <%- end -%>
+  <%- end -%>
+  </div>
 <% end %>
-</div>
 <%= paginate @reviews %>
