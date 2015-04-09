@@ -13,18 +13,17 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
  */
 
-<<<<<<< HEAD
-@import 'modules/topbar';
+@import "modules/topbar";
+@import "modules/footer";
+@import "modules/landing";
+@import "modules/variables";
+
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
-=======
+
 .container {
   margin-left: 10%;
   margin-right: 10%;
 }
-
-
->>>>>>> master
