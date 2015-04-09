@@ -1,49 +1,42 @@
-<div class="airlines">
+<div class="container">
   <h3>Airlines</h3>
-  <ul>
+  <ul class="small-block-grid-3">
     <% @search_result.airlines.each do |airline| %>
       <li>
-        <%= link_to airline.name, airline_path(airline) %>
+        <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" %></a>
+        <p><a href="<%= airline_path(airline) %>"><%= airline.name %></a></p>
       </li>
     <% end %>
   </ul>
 </div>
 
-<div class="reviews">
+<div class="container">
   <h3>Reviews</h3>
 
-  <table>
-    <th>
-      Airline
-    </th>
-    <th>
-      Rating
-    </th>
-    <th>
-      Review
-    </th>
     <% @search_result.reviews.each do |review| %>
-      <tr>
-        <td>
-          <%= link_to review.airline.name, airline_path(review.airline) %>
-        </td>
-        <td>
-          <%= "★" * review.rating %>
-        </td>
-        <td>
-          <%= review.body %>
-        </td>
-        <% if user_signed_in? %>
-          <% if current_user.id == review.user_id %>
-            <td>
-              <%= link_to 'Edit', airline_review_path(@airline, review), class: "button tiny alert" %>
-            </td>
-            <td>
-              <%= link_to 'Delete', airline_review_path(@airline, review), method: :delete, class: "button tiny alert" %>
-            </td>
-          <%- end -%>
-        <%- end -%>
-      </tr>
-    <% end %>
-  </table>
+    <div class="panel callout radius">
+    <%= link_to review_upvotes_path(review), method: :post, id: "upvote-#{review.id}" do %>
+      <i class="fa fa-arrow-up"></i>
+    <%-end-%>
+    <%= review.total_votes %>
+    <%= link_to review_downvotes_path(review), method: :post, id: "downvote-#{review.id}" do %>
+      <i class="fa fa-arrow-down"></i>
+    <%-end-%>
+
+    <% review.rating.times do %>
+      <i class="fa fa-star"></i>
+    <%-end-%>
+    <% (5-review.rating).times do %>
+      <i class="fa fa-star-o"></i>
+    <%-end-%>
+
+    <p><%= review.body %></p>
+    <% if user_signed_in? %>
+      <% if current_user.id == review.user_id %>
+        <%= link_to 'Edit', airline_review_path(review.airline, review), class: "button tiny alert" %>
+        <%= link_to 'Delete', airline_review_path(review.airline, review), method: :delete, class: "button tiny alert" %>
+      <%- end -%>
+     <%- end -%>
+  </div>
+  <% end %>
 </div>
