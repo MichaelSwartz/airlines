@@ -1,53 +1,41 @@
 <div class="welcome">
-  <%- if current_user -%>
-    <h2>Welcome back, <%= current_user.email %>!</h2>
-  <%- else -%>
+  <div class="container">
     <div class="row">
-      <div class="small-12 medium-6 large-6 columns">
-        <h2>
-          Sign In<br>or<br><%= link_to 'Sign Up', new_user_registration_path %>
-        </h2>
-      </div>
-      <div class="small-12 medium-6 large-6 columns">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-
-          <div class="row">
-            <div class="small-6 columns">
-              <div class="actions">
-                <%= f.submit "Log in" %>
-              </div>
-            </div>
-            <div class="small-6 columns">
-              <% if devise_mapping.rememberable? -%>
-                <div class="field">
-                  <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
-                </div>
-              <% end -%>
-            </div>
-          </div>
-        <% end %>
+      <div class="big-text">
+        <div class="small-12 small-centered columns">
+          <h1>Let's Fly!</h1>
+          <h2>Review Your Favorite Airlines</h2>
+        </div>
       </div>
     </div>
-  <%- end -%>
+    <div class="row">
+      <div class="search">
+        <div class="small-12 small-centered columns">
+          <%= form_tag(searches_path, method: :get) do %>
+            <div class="row">
+              <div class="small-6 small-centered columns">
+                <div class="row collapse postfix-round">
+                  <div class="small-9 columns">
+                    <%= text_field_tag(:query) %>
+                  </div>
+                  <div class="small-3 columns">
+                    <%= submit_tag("Search", class: "button postfix") %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= form_tag(searches_path, method: :get) do %>
-  <%= text_field_tag(:query) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-<%= render "airlines/index" %>
 
 <div class="image-attribution">
   Image courtesy of <%= link_to "JFXie", "http://tinyurl.com/pwuk6ef" %>
 <div>
+
+<div class="featured-airlines">
+  <h2>Featured Airlines</h2>
+  <%= render "airlines/index" %>
+</div>
