@@ -10,15 +10,14 @@ class Airline < ActiveRecord::Base
 
   def ratings
     ratings_array = []
-    self.reviews.each do |review|
+    reviews.each do |review|
       ratings_array << review.rating
     end
     ratings_array
   end
 
   def average_rating
-    sum = (self.ratings.inject (0) { |total, n| total + n }).to_f
+    sum = (ratings.inject (0) { |total, n| total + n }).to_f
     sum / ratings.count
   end
-
 end

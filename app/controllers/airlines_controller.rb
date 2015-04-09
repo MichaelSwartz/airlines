@@ -2,7 +2,7 @@ class AirlinesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    airlines = Airline.all.sort{ |x, y| y.average_rating <=> x.average_rating }
+    airlines = Airline.all.sort { |x, y| y.average_rating <=> x.average_rating }
     @airlines = Kaminari.paginate_array(airlines).page(params[:page]).per(24)
   end
 
