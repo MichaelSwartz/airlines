@@ -1,0 +1,17 @@
+
+.circular {
+  width: 200px;
+  height:200px;
+  border-radius:50%;
+  margin:25px;
+}
+
+.circular img {
+  border-radius:50%;
+  transition: transform 0.5s ease;
+  transform: scale(0.8);
+}
+
+.circular img:hover {
+  transform: scale(.9);
+}
