@@ -3,7 +3,8 @@ class AirlinesController < ApplicationController
 
   def index
     sorted_airlines = Airline.sort_by_rating
-    @airlines = Kaminari.paginate_array(sorted_airlines).page(params[:page]).per(24)
+    @airlines = Kaminari.paginate_array(sorted_airlines)
+                        .page(params[:page]).per(24)
   end
 
   def update
