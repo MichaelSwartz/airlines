@@ -9,7 +9,7 @@ class Airline < ActiveRecord::Base
   end
 
   def default_img
-    if self.logo_url.empty?
+    if logo_url.empty?
       self.logo_url = "https://s3.amazonaws.com/frqntflyr-production/uploads/admin/default+photo/frqntflyr.jpg"
       self.save
     end
