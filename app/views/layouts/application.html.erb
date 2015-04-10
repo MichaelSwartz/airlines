@@ -59,11 +59,14 @@
       </div>
     </div>
   <%- end -%>
-
-<%= yield %>
-
 </div>
-  <%= javascript_include_tag 'application' %>
+
+<div class="body-class">
+  <%= yield %>
+</div>
+
+
+<%= javascript_include_tag 'application' %>
   <%= render "layouts/applicationfooter" %>
-</body>
+  </body>
 </html>
