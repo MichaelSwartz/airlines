@@ -3,7 +3,7 @@
   <ul class="small-block-grid-3">
     <% @search_result.airlines.each do |airline| %>
       <li>
-        <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" %></a>
+        <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250", class: "airline_index" %></a>
         <p><a href="<%= airline_path(airline) %>"><%= airline.name %></a></p>
       </li>
     <% end %>
