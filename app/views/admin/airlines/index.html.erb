@@ -1,11 +1,13 @@
 <h1>Hi Admin </h1>
+<%= link_to "View all users", admin_users_path %>
 <h1>Airlines</h1>
 
 <%= link_to "Create New Airline", new_admin_airline_path  %>
 
-<ul>
+<ul class="small-block-grid-3">
   <% @airlines.each do |airline| %>
     <li>
+      <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" , class: "airline_index"%></a>
       <a href="<%= airline_path(airline) %>"><%= airline.name %></a>
     </li>
   <% end %>
