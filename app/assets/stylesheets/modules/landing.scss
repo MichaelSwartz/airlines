@@ -1,6 +1,5 @@
 @import "variables";
 
-
 .welcome {
   background-image: image-url("plane_wing.jpg");
   background-repeat: no-repeat;
@@ -14,11 +13,12 @@
     font-family: Lato;
     line-height: 2.8125rem;
     padding: 0 0.9375rem;
-
   }
+
   .top-bar-section ul li {
     background: none;
   }
+
   .top-bar {
     background: none;
   }
@@ -67,15 +67,16 @@ h2 {
 }
 
 .featured-airlines {
-  h2 {
-    color: $pink;
-    font-weight: bold;
-  }
-
   font-family: Lato;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 15px;
   text-align: center;
+
+  h2 {
+    color: $pink;
+    font-weight: bold;
+  }
 }
+
