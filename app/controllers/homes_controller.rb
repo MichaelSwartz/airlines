@@ -5,7 +5,7 @@ class HomesController < ApplicationController
     @airlines = Airline.limit(6)
     if signed_in?
       @user = User.find(current_user[:id])
-       @user_photo = @user[:profile_photo]
+      @user_photo = @user[:profile_photo]
     end
   end
 end
