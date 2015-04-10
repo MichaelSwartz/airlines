@@ -1,13 +1,19 @@
 @import "variables";
 
-
 .welcome {
   background-image: image-url("plane_wing.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 500px;
   position: relative;
   text-align: center;
+
+  .top-bar-section li:not(.has-form) a:not(.button) {
+    background: none;
+    font-family: Lato;
+    line-height: 2.8125rem;
+    padding: 0 0.9375rem;
+  }
 
   .top-bar-section ul li {
     background: none;
@@ -15,6 +21,13 @@
 
   .top-bar {
     background: none;
+  }
+
+  .flash-container {
+    position: absolute;
+    text-align: center;
+    left: 35%;
+    right: 35%;
   }
 
   .big-text {
@@ -61,15 +74,16 @@ h2 {
 }
 
 .featured-airlines {
-  h2 {
-    color: $pink;
-    font-weight: bold;
-  }
-
   font-family: Lato;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 15px;
   text-align: center;
+
+  h2 {
+    color: $pink;
+    font-weight: bold;
+  }
 }
+

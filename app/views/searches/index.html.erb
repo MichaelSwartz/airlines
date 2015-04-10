@@ -12,28 +12,32 @@
 
 <div class="container">
   <h3>Reviews</h3>
-
-    <% @reviews.each do |review| %>
+  <% @reviews.each do |review| %>
     <div class="panel callout radius">
-    <%= link_to review_upvotes_path(review), method: :post, id: "upvote-#{review.id}" do %>
-      <i class="fa fa-arrow-up"></i>
-    <%-end-%>
-    <%= review.total_votes %>
-    <%= link_to review_downvotes_path(review), method: :post, id: "downvote-#{review.id}" do %>
-      <i class="fa fa-arrow-down"></i>
-    <%-end-%>
-
-    <% review.rating.times do %>
-      <i class="fa fa-star"></i>
-    <%-end-%>
-    <% (5-review.rating).times do %>
-      <i class="fa fa-star-o"></i>
-    <%-end-%>
-
-    <p><%= review.body %></p>
+      <div class="row">
+        <div class="medium-2 large-2 columns">
+          <%= link_to review_upvotes_path(review), method: :post, id: "upvote-#{review.id}" do %>
+            <i class="fa fa-arrow-up"></i>
+          <%-end-%>
+          <%= review.total_votes %>
+          <%= link_to review_downvotes_path(review), method: :post, id: "downvote-#{review.id}" do %>
+            <i class="fa fa-arrow-down"></i>
+          <%-end-%>
+        </div>
+        <div class="large-10 columns">
+          <% review.rating.times do %>
+            <i class="fa fa-star"></i>
+          <%-end-%>
+          <% (4-review.rating).times do %>
+            <i class="fa fa-star-o"></i>
+          <%-end-%>
+          <span class="review_author">by <%=review.user.email%> on <%=review.updated_at.to_formatted_s(:long) %></span>
+          <div class="medium-10 columns"><%= review.body %></div>
+        </div>
+      </div>
     <% if user_signed_in? %>
       <% if current_user.id == review.user_id %>
-        <%= link_to 'Edit', airline_review_path(review.airline, review), class: "button tiny alert" %>
+        <%= link_to 'Edit', airline_review_path(review.airline, review), class: "button tiny" %>
         <%= link_to 'Delete', airline_review_path(review.airline, review), method: :delete, class: "button tiny alert" %>
       <%- end -%>
      <%- end -%>
