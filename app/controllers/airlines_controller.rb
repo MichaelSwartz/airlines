@@ -13,7 +13,7 @@ class AirlinesController < ApplicationController
       flash[:notice] = "Airline updated"
       redirect_to @airline
     else
-      flash[:notice] = @airline.errors.full_messages.join(", ")
+      flash[:alert] = @airline.errors.full_messages.join(", ")
       render :edit
     end
   end
@@ -40,7 +40,7 @@ class AirlinesController < ApplicationController
       flash[:notice] = "New Airline Added"
       redirect_to @airline
     else
-      flash[:notice] = @airline.errors.full_messages.join(", ")
+      flash[:alert] = @airline.errors.full_messages.join(", ")
       render :new
     end
   end
