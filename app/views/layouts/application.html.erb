@@ -29,14 +29,19 @@
             </div>
           </div>
         <% end %>
-      </li>
+        </li>
+      <%- if current_user %>
+       <li class="circular-nav-app">
+          <img src=<%=current_user.profile_photo %>>
+          </li>
+      <% end %>
 
       <li>
         <%= link_to "Browse Airlines", airlines_path %>
       </li>
 
       <%- if current_user -%>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
+       <li><%= link_to "Profile", user_path(current_user) %></li>
         <%- if current_user.admin -%>
           <li><%= link_to 'Admin', admin_airlines_path %></li>
         <%- end -%>

@@ -38,3 +38,39 @@
   font-family: Lato;
   padding-top: 10px;
 }
+
+.top-bar-section ul li {
+  background: none;
+}
+
+.circular-nav {
+  height: 40px;
+  width: 50px;
+}
+
+.circular-nav-app {
+  padding-top: 9px;
+  height: 40px;
+  width: 50px;
+}
+
+.circular-nav-app img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  transform: scale(0.4);
+  transition: transform 0.5s ease;
+  position: relative;
+  border:3px solid $white;
+
+}
+
+.circular-nav img {
+  border-radius: 50%;
+  height: 5px;
+  transform: scale(0.4);
+  transition: transform 0.5s ease;
+  position: relative;
+  border:3px solid $white;
+}
+

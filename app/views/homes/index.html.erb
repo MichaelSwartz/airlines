@@ -18,9 +18,13 @@
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-          <li>
-            <%= link_to "Profile", user_path(current_user) %>
+          <li class="circular-nav">
+              <img src=<%= current_user.profile_photo %>>
           </li>
+          <li>
+          <%= link_to "Profile", user_path(current_user) %>
+          </li>
+         </li>
           <%- if current_user.admin -%>
             <li><%= link_to 'Admin', admin_airlines_path %></li>
           <%- end -%>
@@ -32,7 +36,7 @@
       </ul>
     </section>
   </nav>
-  
+
   <div class="container">
     <div class="row">
       <div class="big-text">
