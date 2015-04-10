@@ -4,13 +4,14 @@
   background: $topbar-bg-color;
 
   .name h1 {
-    position: absolute;
     color: $white;
-    font-family: Lobster;
     display: block;
+    font-family: Lobster;
     padding: 0 0.9375rem;
-    width: 100%;
+    position: absolute;
     text-align: left;
+    width: 100%;
+
   }
 
   .row {
@@ -24,8 +25,8 @@
 
   .button {
     background-color: $pink;
-    min-width: 100%;
     font-family: Lato;
+    min-width: 100%;
     line-height: 15px;
   }
 }
