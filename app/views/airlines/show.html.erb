@@ -44,7 +44,7 @@
           <% (4-review.rating).times do %>
             <i class="fa fa-star-o"></i>
           <%-end-%>
-          <span id="review_author">by <%=review.user.email%> on <%=review.updated_at.to_formatted_s(:long) %></span>
+          <span class="review_author">by <%=review.user.email%> on <%=review.updated_at.to_formatted_s(:long) %></span>
           <div class="medium-10 columns"><%= review.body %></div>
         </div>
       </div>
