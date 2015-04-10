@@ -18,7 +18,7 @@ feature 'user creates review and airline owner is notified via email ', %Q{
     visit airline_path(airline)
 
     select('1', from: 'Rating:')
-    fill_in 'Body', with: 'I like this airline'
+    fill_in 'Description', with: 'I like this airline'
     click_button 'Submit review'
 
     expect(page).to have_content('I like this airline')

@@ -22,7 +22,7 @@ feature 'user updates review', %Q{
       click_link('Edit')
 
       select('2', from: 'Rating:')
-      fill_in 'Body', with: 'I like this airline a lot'
+      fill_in 'Description', with: 'I like this airline a lot'
       click_button 'Edit review'
 
       expect(page).to have_content('Review successfully edited')
