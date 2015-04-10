@@ -42,3 +42,38 @@
   font-family: Lato;
   padding-top: 10px;
 }
+
+.top-bar-section ul li {
+  background: none;
+}
+
+.circular-nav {
+  height: 40px;
+  width: 50px;
+
+  img {
+    border: 3px solid $white;
+    border-radius: 50%;
+    height: 5px;
+    position: relative;
+    transform: scale(0.4);
+    transition: transform 0.5s ease;
+  }
+}
+
+.circular-nav-app {
+  height: 40px;
+  padding-top: 9px;
+  width: 50px;
+
+  img {
+    border: 3px solid $white;
+    border-radius: 50%;
+    height: 50px;
+    position: relative;
+    transform: scale(0.4);
+    transition: transform 0.5s ease;
+    width: 50px;
+  }
+}
+
