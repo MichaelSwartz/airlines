@@ -1,9 +1,11 @@
 <div class="container">
   <h3>Airlines</h3>
+  <% if @search_result.airlines.empty? %>
+    <p>There are no airlines to show.</p>
+  <%-end-%>
   <div class="new-airline">
     <%= link_to "Create New Airline", new_airline_path, class: "button small " %>
   </div>
-
   <ul class="small-block-grid-3">
     <% @search_result.airlines.each do |airline| %>
       <li>
@@ -16,6 +18,9 @@
 
 <div class="container">
   <h3>Reviews</h3>
+  <% if @reviews.empty? %>
+    <p>There are no reviews to show.</p>
+  <%-end-%>
   <% @reviews.each do |review| %>
     <div class="panel callout radius">
       <div class="row">
