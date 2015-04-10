@@ -1,3 +1,4 @@
+
 <h3>Airlines</h3>
 <ul class="small-block-grid-3">
   <% @search_result.airlines.each do |airline| %>
@@ -8,6 +9,22 @@
   <% end %>
 </ul>
 <%= link_to "See All Airlines", airlines_path, class: "button large" %>
+
+<div class="container">
+  <h3>Airlines</h3>
+  <div class="new-airline">
+    <%= link_to "Create New Airline", new_airline_path, class: "button small " %>
+  </div>
+
+  <ul class="small-block-grid-3">
+    <% @search_result.airlines.each do |airline| %>
+      <li>
+        <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" %></a>
+        <p><a href="<%= airline_path(airline) %>"><%= airline.name %></a></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <h3>Reviews</h3>
 <% @reviews.each do |review| %>

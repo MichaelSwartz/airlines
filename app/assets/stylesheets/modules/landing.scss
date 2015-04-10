@@ -82,8 +82,10 @@ h2 {
   text-align: center;
 
   h2 {
-    color: $pink;
     font-weight: bold;
   }
-}
 
+  .button {
+    background-color: $pink;
+  }
+}
