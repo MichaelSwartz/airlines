@@ -1,5 +1,10 @@
-
 <h3>Airlines</h3>
+<% if @search_result.airlines.empty? %>
+  <p>There are no airlines to show.</p>
+<%-end-%>
+<div class="new-airline">
+  <%= link_to "Create New Airline", new_airline_path, class: "button small " %>
+</div>
 <ul class="small-block-grid-3">
   <% @search_result.airlines.each do |airline| %>
     <li>
@@ -8,25 +13,11 @@
     </li>
   <% end %>
 </ul>
-<%= link_to "See All Airlines", airlines_path, class: "button large" %>
-
-<div class="container">
-  <h3>Airlines</h3>
-  <div class="new-airline">
-    <%= link_to "Create New Airline", new_airline_path, class: "button small " %>
-  </div>
-
-  <ul class="small-block-grid-3">
-    <% @search_result.airlines.each do |airline| %>
-      <li>
-        <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" %></a>
-        <p><a href="<%= airline_path(airline) %>"><%= airline.name %></a></p>
-      </li>
-    <% end %>
-  </ul>
-</div>
 
 <h3>Reviews</h3>
+<% if @reviews.empty? %>
+  <p>There are no reviews to show.</p>
+<%-end-%>
 <% @reviews.each do |review| %>
   <div class="panel callout radius">
     <div class="row">
@@ -50,13 +41,23 @@
         <div class="medium-10 columns"><%= review.body %></div>
       </div>
     </div>
-  <% if user_signed_in? %>
-    <% if current_user.id == review.user_id %>
-      <%= link_to 'Edit', airline_review_path(review.airline, review), class: "button tiny" %>
-      <%= link_to 'Delete', airline_review_path(review.airline, review), method: :delete, class: "button tiny alert" %>
-    <%- end -%>
-   <%- end -%>
-</div>
+    <div class="large-10 columns">
+      <% review.rating.times do %>
+        <i class="fa fa-star"></i>
+      <%-end-%>
+      <% (4-review.rating).times do %>
+        <i class="fa fa-star-o"></i>
+      <%-end-%>
+      <span class="review_author">by <%=review.user.email%> on <%=review.updated_at.to_formatted_s(:long) %></span>
+      <div class="medium-10 columns"><%= review.body %></div>
+    </div>
+  </div>
+<% if user_signed_in? %>
+  <% if current_user.id == review.user_id %>
+    <%= link_to 'Edit', airline_review_path(review.airline, review), class: "button tiny" %>
+    <%= link_to 'Delete', airline_review_path(review.airline, review), method: :delete, class: "button tiny alert" %>
+  <%- end -%>
+ <%- end -%>
 <% end %>
 
 <%= paginate @reviews %>
