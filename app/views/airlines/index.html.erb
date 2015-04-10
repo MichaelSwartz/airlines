@@ -1,7 +1,9 @@
 <div class="container">
   <h1>Browse Airlines</h1>
 
-  <%= link_to "Create New Airline", new_airline_path  %>
+  <div class="new-airline">
+    <%= link_to "Create New Airline", new_airline_path, class: "button small" %>
+  </div>
 
   <ul class="small-block-grid-3">
     <% @airlines.each do |airline| %>

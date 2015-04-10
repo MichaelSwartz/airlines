@@ -5,25 +5,29 @@
 
   .name h1 {
     color: $white;
-    font-family: Lobster;
     display: block;
+    font-family: Lobster;
     padding: 0 0.9375rem;
+    position: absolute;
+    text-align: left;
     width: 100%;
+
   }
 
   .row {
     background-color: $blue;
     margin-bottom: 0;
     margin-left: auto;
-    margin-right: 350px;
+    margin-right: auto;
     margin-top: 0;
     max-width: 62.5rem;
   }
 
   .button {
     background-color: $pink;
-    min-width: 100%;
     font-family: Lato;
+    line-height: 15px;
+    min-width: 100%;
   }
 }
 
