@@ -36,7 +36,7 @@ class Admin::AirlinesController < ApplicationController
       flash[:notice] = "Airline updated"
       redirect_to @airline
     else
-      flash[:notice] = @airline.errors.full_messages.join(", ")
+      flash[:alert] = @airline.errors.full_messages.join(", ")
       render :edit
     end
   end
@@ -44,7 +44,7 @@ class Admin::AirlinesController < ApplicationController
   def destroy
     @airline = Airline.find(params[:id])
     @airline.destroy
-    flash[:notice] = "Airline deleted"
+    flash[:alert] = "Airline deleted"
     redirect_to admin_airlines_path
   end
 

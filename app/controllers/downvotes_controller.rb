@@ -7,14 +7,14 @@ class DownvotesController < ApplicationController
     end
     case true
     when current_user.nil?
-      flash[:notice] = "You need to be logged in to vote!"
+      flash[:alert] = "You need to be logged in to vote!"
     when @downvote.nil?
       @downvote = Vote.create(user_id: current_user[:id],
                               review_id: params[:review_id],
                               value: -1)
       flash[:notice] = "Downvote Created"
     when @downvote.value == -1
-      flash[:notice] = "You've already downvoted!"
+      flash[:alert] = "You've already downvoted!"
     else
       @downvote.value -= 1
       @downvote.save
