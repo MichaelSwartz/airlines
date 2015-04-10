@@ -8,9 +8,9 @@
   <% @airlines.each do |airline| %>
     <li>
       <a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" , class: "airline_index"%></a>
-      <a href="<%= airline_path(airline) %>"><%= airline.name %></a>
+      <p><a href="<%= airline_path(airline) %>"><%= airline.name %></a></p>
     </li>
-  <% end %>
+<% end %>
 </ul>
 
 <%= paginate @airlines %>
