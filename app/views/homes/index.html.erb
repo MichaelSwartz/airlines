@@ -1,4 +1,14 @@
 <div class="welcome">
+  <div class=flash-container>
+    <%- flash.each do |key, value| -%>
+      <div class="alert-box alert radius">
+        <div class="flash flash-<%= key %>">
+          <%= value %>
+        </div>
+      </div>
+    <%- end -%>
+  </div>
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -19,9 +29,10 @@
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
-    </ul>
-  </section>
-</nav>
+      </ul>
+    </section>
+  </nav>
+  
   <div class="container">
     <div class="row">
       <div class="big-text">

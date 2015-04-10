@@ -4,7 +4,7 @@
   background-image: image-url("plane_wing.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 500px;
   position: relative;
   text-align: center;
 
@@ -21,6 +21,13 @@
 
   .top-bar {
     background: none;
+  }
+
+  .flash-container {
+    position: absolute;
+    text-align: center;
+    left: 35%;
+    right: 35%;
   }
 
   .big-text {
