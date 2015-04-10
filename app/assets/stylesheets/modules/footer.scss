@@ -3,14 +3,17 @@
 .footer {
   background: $blue;
   bottom: 0;
+  left: 0;
   color: $white;
-  height: 300px;
-  position: absolute;
+  height: 250px;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
 
   .header {
     font-family: Lato;
     padding-top: 20px;
-    text-align: center;
   }
 
   h2 {
@@ -29,7 +32,7 @@
     margin-right: 650px;
   }
 
-  .gen {
+  .profileimage {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
