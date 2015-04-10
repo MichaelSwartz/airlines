@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+</div><!DOCTYPE html>
 <html>
 <head>
 <title>Frqnt Flyr</title>
@@ -6,18 +8,22 @@
 <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="top-bar">
+
+<nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="/">Frqnt Flyr</a></h1>
+      <h1><%= link_to "FrqntFlyr", root_path %></h1>
     </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
+
   <section class="top-bar-section">
     <ul class="right">
       <li>
         <%= form_tag(searches_path, method: :get) do %>
           <div class="row">
-            <div class="small-4 columns large-6 columns">
+            <div class="small-12 columns">
               <div class="row collapse postfix-round">
                 <div class="small-9 columns">
                   <%= text_field_tag(:query) %>
@@ -31,9 +37,7 @@
         <% end %>
       </li>
 
-      <li>
-        <%= link_to "Browse Airlines", airlines_path %>
-      </li>
+      <li><%= link_to "Browse Airlines", airlines_path %></li>
 
       <%- if current_user -%>
         <li><%= link_to "Profile", user_path(current_user) %></li>
@@ -62,7 +66,9 @@
 </div>
 
 <div class="body-class">
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </div>
 
 
