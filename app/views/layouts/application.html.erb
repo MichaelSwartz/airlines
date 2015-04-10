@@ -47,7 +47,7 @@
   </section>
 </nav>
 
-<div class=container>
+<div class="container">
   <%- flash.each do |key, value| -%>
     <div class="alert-box alert radius">
       <div class="flash flash-<%= key %>">
@@ -56,11 +56,13 @@
     </div>
   <%- end -%>
 </div>
+
 <div class="body-class">
   <%= yield %>
 </div>
 
-  <%= javascript_include_tag 'application' %>
+
+<%= javascript_include_tag 'application' %>
   <%= render "layouts/applicationfooter" %>
   </body>
 </html>
