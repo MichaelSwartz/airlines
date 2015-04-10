@@ -9,10 +9,12 @@
   position: relative;
   text-align: center;
 
+  .top-bar-section ul li {
+    background: none;
+  }
+
   .top-bar {
     background: none;
-
-
   }
 
   .big-text {
