@@ -26,7 +26,7 @@ feature 'user creates review', %Q{
       visit airline_path(airline)
 
       select('1', from: 'Rating:')
-      fill_in 'Body', with: 'I like this airline'
+      fill_in 'Description', with: 'I like this airline'
       click_button 'Submit review'
 
       expect(page).to have_content('Review successfully created')
@@ -51,7 +51,7 @@ feature 'user creates review', %Q{
       visit airline_path(airline)
 
       select('1', from: 'Rating:')
-      fill_in 'Body', with: 'I like this airline'
+      fill_in 'Description', with: 'I like this airline'
       click_button 'Submit review'
       expect(page).to have_content(
       'You need to sign in or sign up before continuing.')
