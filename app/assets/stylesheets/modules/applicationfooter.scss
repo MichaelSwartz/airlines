@@ -1,11 +1,18 @@
 @import "variables";
 
+body {
+  min-height: 100%;
+  position: relative;
+}
+
 .application-footer {
   background: $blue;
   bottom: 0;
   color: $white;
-  height: 100px;
+  height: 150px;
   left: 0;
+  right: 0;
+  padding: 1rem;
   line-height: 50px;
   position: relative;
   text-align: center;
