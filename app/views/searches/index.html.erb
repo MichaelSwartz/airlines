@@ -13,7 +13,7 @@
 <div class="container">
   <h3>Reviews</h3>
 
-    <% @search_result.reviews.each do |review| %>
+    <% @reviews.each do |review| %>
     <div class="panel callout radius">
     <%= link_to review_upvotes_path(review), method: :post, id: "upvote-#{review.id}" do %>
       <i class="fa fa-arrow-up"></i>
@@ -40,3 +40,4 @@
   </div>
   <% end %>
 </div>
+<%= paginate @reviews %>
