@@ -1,28 +1,34 @@
 <h5><strong><%= @user.email %></strong></h5>
-
-<%= button_to "Delete User", admin_user_path, method: :delete %>
-<%= button_to "Authorize as Admin", admin_user_path, method: :patch %>
-<br>
+<div class="row">
+  <div class="small-4 medium-4 columns">
+    <%= button_to "Delete User", admin_user_path, method: :delete, class:"button alert" %>
+  </div>
+  <div class="small-4 medium-4 columns">
+    <%= button_to "Authorize as Admin", admin_user_path, method: :patch, class: "button"%>
+  </div>
+  <div class="small-4 medium columns"></div>
+</div>
 
 <% unless @user.airlines.empty? %>
-  Airlines owned:
-  <ul>
-    <% @user.airlines.each do |airline| %>
-      <li><%= airline.name %></li>
-    <%- end -%>
-  </ul>
+  Airlines created:
+<ul class="small-block-grid-3">
+  <% @user.airlines.each do |airline| %>
+    <li><a href="<%= airline_path(airline) %>"><%= image_tag airline.logo_url, size: "250x250" , class: "airline_index"%></a>
+  <a href="<%= airline_path(airline) %>"><%= airline.name %></a></li>
+<%- end -%>
+</ul>
 <%- end -%>
 
 <h5>Reviews:</h5>
 <ul>
   <% @reviews.each do |airline, reviews| %>
     <li>
-      <%= airline.name %>
-      <ul>
-        <% reviews.each do |r| %>
-          <li><%= r.body %></li>
-        <% end %>
-      </ul>
-    </li>
-  <%- end -%>
+  <%= airline.name %>
+  <ul>
+    <% reviews.each do |r| %>
+      <li><%= r.body %></li>
+  <% end %>
+  </ul>
+  </li>
+<%- end -%>
 </ul>

@@ -1,4 +1,4 @@
-<h1> Edit Airline</h1>
+<h3> Edit Airline</h3>
 
 <div>
   <%= form_for [:admin, @airline] do |f| %>
@@ -14,8 +14,8 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
 
-    <%= f.submit "Update Airline" %>
+    <%= f.submit "Update Airline", class: "button" %>
   <% end %>
 </div>
 
-<%= button_to "Delete Airline", airline_path, method: :delete %>
+<%= button_to "Delete Airline", airline_path, method: :delete, class: "button" %>

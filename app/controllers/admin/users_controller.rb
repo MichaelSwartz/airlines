@@ -16,7 +16,7 @@ module Admin
     def update
       @user = User.find(params[:id])
       @user.update(admin: true)
-      flash[:alert] = "New admin authorized"
+      flash[:notice] = "New admin authorized"
       redirect_to admin_users_path
     end
 
@@ -24,7 +24,7 @@ module Admin
       @user = User.find(params[:id])
 
       if @user.destroy
-        flash[:alert] = "User deleted"
+        flash[:notice] = "User deleted"
       else
         flash[:alert] = "Failed to delete"
       end

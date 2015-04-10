@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @airline = Airline.find(@review.airline_id)
     if @review.destroy
-      flash[:alert] = 'Review successfully deleted'
+      flash[:notice] = 'Review successfully deleted'
     else
       flash[:alert] = "Something went wrong"
     end
