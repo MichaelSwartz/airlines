@@ -9,10 +9,16 @@
   position: relative;
   text-align: center;
 
+  .top-bar-section li:not(.has-form) a:not(.button) {
+    background: none;
+    font-family: Lato;
+    line-height: 2.8125rem;
+    padding: 0 0.9375rem;
+
+  }
   .top-bar-section ul li {
     background: none;
   }
-
   .top-bar {
     background: none;
   }
