@@ -17,7 +17,7 @@
       <li>
         <%= form_tag(searches_path, method: :get) do %>
           <div class="row">
-            <div class="large-6 columns">
+            <div class="small-4 columns large-6 columns">
               <div class="row collapse postfix-round">
                 <div class="small-9 columns">
                   <%= text_field_tag(:query) %>
@@ -29,6 +29,10 @@
             </div>
           </div>
         <% end %>
+      </li>
+
+      <li>
+        <%= link_to "Browse Airlines", airlines_path %>
       </li>
 
       <%- if current_user -%>
@@ -63,4 +67,3 @@
   <%= render "layouts/applicationfooter" %>
 </body>
 </html>
-
