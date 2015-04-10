@@ -1,5 +1,6 @@
 @import "variables";
 
+
 .welcome {
   background-image: image-url("plane_wing.jpg");
   background-repeat: no-repeat;
@@ -7,6 +8,14 @@
   height: 400px;
   position: relative;
   text-align: center;
+
+  .top-bar-section ul li {
+    background: none;
+  }
+
+  .top-bar {
+    background: none;
+  }
 
   .big-text {
     margin: 0 auto;
