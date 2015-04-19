@@ -2,14 +2,16 @@
 [![Build Status](https://travis-ci.org/MichaelSwartz/airlines.svg?branch=master)](https://travis-ci.org/MichaelSwartz/airlines) [![Code Climate](https://codeclimate.com/github/MichaelSwartz/airlines.png)](https://codeclimate.com/github/MichaelSwartz/airlines) [![Coverage Status](https://coveralls.io/repos/MichaelSwartz/airlines/badge.png)](https://coveralls.io/r/MichaelSwartz/airlines)
 ![Alt text](https://github.com/MichaelSwartz/airlines/blob/master/app/assets/images/landing.png?raw=true "Airlines Project")
 
-An An AirBnB Like Review site for Airlines built with Rails & Javascript. Our team of four: Michael, Erik, Gen and David built this project over the course of two weeks. 
+# Frqnt Flyr:
 
-To run:
+### An An AirBnB Like Review site for Airlines built with Rails & Javascript. Our team of four: Michael, Erik, Gen and David built this project over the course of two weeks. 
+
+### To run:
 
   1. Git Clone: https://github.com/MichaelSwartz/airlines.git
   2. Rails S
 
-Features: 
+### Features: 
 
 1. Search for airlines of interest.
 2. Login to review and add airlines.
