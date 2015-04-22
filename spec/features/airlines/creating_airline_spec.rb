@@ -11,7 +11,6 @@ feature "creating an airline" do
     scenario "succesfully creates airline" do
       visit airlines_path
       click_on "Create New Airline"
-
       fill_in "Name", with: "Example Airline"
       fill_in "Link URL", with: "www.example.com"
       fill_in "Logo URL", with: "http://img4.wikia.nocookie.net/__cb20110201093102/logopedia/images/f/f5/Logo1929.gif"
